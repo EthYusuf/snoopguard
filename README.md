@@ -5,7 +5,29 @@
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4.svg?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/jetpack/compose)
 [![Privacy First](https://img.shields.io/badge/Privacy-100%25%20On--Device-00C853.svg?style=for-the-badge)](https://developer.android.com)
 [![Zero Cloud](https://img.shields.io/badge/Cloud%20Upload-ZERO-D50000.svg?style=for-the-badge)](https://developer.android.com)
-[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](release/snoopguard-v1.0.0-release.apk)
+[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](snoopguard.apk)
+
+<p align="center">
+  <img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard Problem Solution Overview" width="100%" />
+</p>
+
+---
+
+## 📸 App Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/home_shield.jpg" width="31%" alt="Live Shield Radar Dashboard" />
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/decoy_trap.jpg" width="31%" alt="Decoy Trap Lockscreen Intrusion Capture" />
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/forensics_log.jpg" width="31%" alt="Forensics Log Gallery" />
+</p>
+
+<p align="center">
+  <i>1. <b>Live Shield Dashboard:</b> Real-time biometric radar & threat scanner</i> • 
+  <i>2. <b>Decoy Trap:</b> Stealth lockscreen & silent intrusion photo trigger</i> • 
+  <i>3. <b>Forensic Gallery:</b> Timestamped intruder evidence log</i>
+</p>
 
 ---
 
