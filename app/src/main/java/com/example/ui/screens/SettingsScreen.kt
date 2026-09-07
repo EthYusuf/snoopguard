@@ -72,7 +72,8 @@ fun SettingsScreen(
     onResetOwnerFace: () -> Unit,
     onClearAllLogs: () -> Unit,
     onOpenDisclaimer: () -> Unit,
-    onRevokeDisclaimer: () -> Unit
+    onRevokeDisclaimer: () -> Unit,
+    onOpenPrivacyGuide: () -> Unit
 ) {
     val scrollState = rememberScrollState()
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
@@ -95,37 +96,52 @@ fun SettingsScreen(
                 containerColor = EmeraldSafe.copy(alpha = 0.12f)
             )
         ) {
-            Row(
-                modifier = Modifier.padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape)
-                        .background(EmeraldSafe.copy(alpha = 0.2f)),
-                    contentAlignment = Alignment.Center
+            Column(modifier = Modifier.padding(16.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(44.dp)
+                            .clip(CircleShape)
+                            .background(EmeraldSafe.copy(alpha = 0.2f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = null,
+                            tint = EmeraldSafe,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "100% Yerel Veri İşleme Güvencesi",
+                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = "Hiçbir fotoğraf veya yüz verisi internete veya sunuculara aktarılmaz. Her şey telefonun özel alanında saklanır.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
+                            lineHeight = 16.sp
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                OutlinedButton(
+                    onClick = onOpenPrivacyGuide,
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.fillMaxWidth()
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Lock,
+                        imageVector = Icons.Default.Security,
                         contentDescription = null,
-                        tint = EmeraldSafe,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(16.dp)
                     )
-                }
-                Spacer(modifier = Modifier.width(14.dp))
-                Column {
-                    Text(
-                        text = "100% Yerel Veri İşleme Güvencesi",
-                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                    Text(
-                        text = "Hiçbir fotoğraf veya yüz verisi internete veya sunuculara aktarılmaz. Her şey telefonun özel alanında saklanır.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
-                        lineHeight = 16.sp
-                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Gözcü Hangi Sorunu Çözer? (Detaylı Rehber)", fontSize = 12.sp)
                 }
             }
         }

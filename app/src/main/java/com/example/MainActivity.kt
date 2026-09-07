@@ -50,6 +50,7 @@ import com.example.data.model.SnooperLog
 import com.example.ui.SnoopGuardViewModel
 import com.example.ui.components.DecoyTrapScreen
 import com.example.ui.components.DisclaimerConsentDialog
+import com.example.ui.components.PrivacyGuideDialog
 import com.example.ui.components.RegisterOwnerDialog
 import com.example.ui.components.SnooperDetailDialog
 import com.example.ui.screens.HomeScreen
@@ -80,6 +81,7 @@ fun SnoopGuardApp(viewModel: SnoopGuardViewModel = viewModel()) {
 
     var selectedTab by remember { mutableIntStateOf(0) }
     var inspectingLog by remember { mutableStateOf<SnooperLog?>(null) }
+    var showPrivacyGuide by remember { mutableStateOf(false) }
 
     // If Decoy Trap mode is fullscreen active
     if (state.showDecoyTrapScreen) {
@@ -249,7 +251,8 @@ fun SnoopGuardApp(viewModel: SnoopGuardViewModel = viewModel()) {
                     onOpenRegisterOwner = { viewModel.setShowRegisterOwnerDialog(true) },
                     onOpenDecoyTrap = { viewModel.openDecoyTrap() },
                     onSimulateTest = { viewModel.simulateSnooperIncident() },
-                    onAlertClicked = { inspectingLog = it }
+                    onAlertClicked = { inspectingLog = it },
+                    onOpenGuide = { showPrivacyGuide = true }
                 )
                 1 -> LogsGalleryScreen(
                     logs = logs,
@@ -264,10 +267,18 @@ fun SnoopGuardApp(viewModel: SnoopGuardViewModel = viewModel()) {
                     onResetOwnerFace = { viewModel.resetOwnerFace() },
                     onClearAllLogs = { viewModel.clearAllLogs() },
                     onOpenDisclaimer = { viewModel.openDisclaimer() },
-                    onRevokeDisclaimer = { viewModel.revokeDisclaimer() }
+                    onRevokeDisclaimer = { viewModel.revokeDisclaimer() },
+                    onOpenPrivacyGuide = { showPrivacyGuide = true }
                 )
             }
         }
+    }
+
+    // Modal: Privacy & Problem Solution Guide
+    if (showPrivacyGuide) {
+        PrivacyGuideDialog(
+            onDismiss = { showPrivacyGuide = false }
+        )
     }
 
     // Modal: Legal Disclaimer & Explicit User Consent
