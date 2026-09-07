@@ -1,136 +1,149 @@
-# 🛡️ GÖZCÜ (SnoopGuard)
-> **Cihaz İçi Yerel Yapay Zeka Destekli Ekran Gizliliği ve Omuz Dikizleme (Shoulder Surfing) Kalkanı**
+# 🛡️ SnoopGuard (Gözcü)
+> **On-Device AI Privacy Shield against Shoulder Surfing & Unattended Phone Snooping**
 
-![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple.svg?style=flat&logo=kotlin)
-![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-M3-green.svg?style=flat&logo=android)
-![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-blue.svg?style=flat)
-![Database](https://img.shields.io/badge/Storage-Room%20SQLite%20Offline-orange.svg?style=flat)
-![Zero Cloud](https://img.shields.io/badge/Cloud%20Upload-ZERO-red.svg?style=flat)
-
----
-
-## 📌 İnsanların Hangi Sorununu Çözüyor? (Problem & Çözüm)
-
-Günümüzde akıllı telefonlar sadece iletişim aracı değil; **bankacılık işlemlerimizin, özel mesajlarımızın, iş e-postalarımızın ve kişisel fotoğraflarımızın** merkezidir. Ancak ekranlar büyüdükçe ve hayatımız kalabalıklaştıkça gizliliğimiz sürekli tehdit altındadır.
-
-### 1. Omuz Üzerinden Gözetleme (Shoulder Surfing)
-* **Gerçek Hayat Senaryosu:** Metroda, otobüste, uçakta, asansörde veya kafede otururken banka hesabınıza girdiğinizde, şifre yazdığınızda ya da sevgilinizle/arkadaşınızla özel mesajlaşırken hemen yanınızdaki veya arkanızdaki bir yabancının gözlerini ekrana dikmesi.
-* **Yaşanan Problem:** İnsanların %70'inden fazlası toplu taşımada ekranını eliyle siper etmek zorunda kalır veya dikizleyen kişiyi fark edemez.
-* **Gözcü Çözümü:** Ön kameranın geniş açısını kullanan yerel yapay zeka algoritması, ekrana yönelen yabancı yüzleri ve bakış açılarını anlık takip eder. Sahibinden farklı bir bakış ekrana odaklandığında anında sessiz titreşimle uyarır ve dikizleyen kişinin fotoğrafını kanıt olarak kaydeder.
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-7F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4.svg?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/jetpack/compose)
+[![Privacy First](https://img.shields.io/badge/Privacy-100%25%20On--Device-00C853.svg?style=for-the-badge)](https://developer.android.com)
+[![Zero Cloud](https://img.shields.io/badge/Cloud%20Upload-ZERO-D50000.svg?style=for-the-badge)](https://developer.android.com)
+[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](release/snoopguard-v1.0.0-release.apk)
 
 ---
 
-### 2. Masada Bırakılan Telefonun Kurcalanması (Unattended Snooping)
-* **Gerçek Hayat Senaryosu:** Ofiste toplantıya gittiğinizde, sınıfta sıranızdan kalktığınızda veya evde arkadaş ortamında masada bıraktığınız telefonun meraklı biri tarafından açılmaya çalışılması.
-* **Yaşanan Problem:** Bildirim önizlemelerinin okunması, kilidin zorlanması veya telefon sahibinin arkasından gizlice mesajlara bakılması.
-* **Gözcü Çözümü — Tuzak Kilit Ekranı (Decoy Trap):** Telefon sahte ama tamamen gerçekçi bir kilit ekranına geçer (saat, tarih ve "Kilidi açmak için kaydırın" animasyonu). Meraklı kişi ekrana dokunduğu anda ön kamera flaş patlatmadan, ses çıkarmadan saniyesinde fotoğrafını çeker ve günlüğe saat/dakika/saniye olarak işler.
+## 📥 Download Ready-to-Install APK
+
+You can directly download and test the compiled Android package or attach it to your **GitHub Releases**:
+
+* 📦 **Repository Location:** [`/release/snoopguard-v1.0.0-release.apk`](release/snoopguard-v1.0.0-release.apk)
+* 🚀 **GitHub Releases Tag:** `v1.0.0`
+* 📱 **Minimum OS Requirement:** Android 8.0+ (API 26+)
+* 🔐 **Permissions:** Camera (100% Optional & On-Device), Vibration, Local Storage
+
+> **Tip for GitHub Releases:** When creating a new Release on GitHub, tag it as `v1.0.0` and drag-and-drop the file from `release/snoopguard-v1.0.0-release.apk` directly into the release assets area.
 
 ---
 
-### 3. Bulut Güvensizliği ve Biyometrik Veri Sızıntısı Korkusu
-* **Gerçek Hayat Senaryosu:** Piyasada güvenlik vaat eden pek çok uygulama, yüz fotoğraflarını sunuculara göndermekte, veri sızıntılarına yol açmakta ve kullanıcıların gizliliğini ihlal etmektedir.
-* **Gözcü Çözümü:** **%100 Yerel (On-Device Local AI).** Gözcü'de hiçbir fotoğraf, hiçbir yüz koordinatı veya hiçbir log kaydı internete çıkmaz. Cihazın kendi dahili Room SQLite veritabanında şifreli olarak barındırılır.
+## 📌 Real-World Problems SnoopGuard Solves
+
+Smartphones contain our most private assets: **mobile banking, biometric credentials, sensitive family chats, private photos, and enterprise communications**. However, in public or shared spaces, screen privacy is consistently compromised.
+
+### 1. The "Shoulder Surfing" Dilemma in Public Transit & Cafes
+* **The Scenario:** You are checking your crypto wallet, mobile banking balance, or reading intimate messages on the subway, bus, plane, or in a busy cafe. Strangers standing behind or sitting next to you gaze at your screen unnoticed.
+* **The Danger:** More than 70% of credential leaks in public occur due to visual hacking (shoulder surfing). Most users are forced to awkwardly cup their screens with their hands.
+* **SnoopGuard Solution (Live Shield):** Using front-camera gaze analysis, the local on-device neural engine detects foreign faces looking directly at your screen. The moment an unauthorized gaze crosses the threshold, SnoopGuard delivers a discreet vibration alert, highlights the intrusion with a red threat perimeter, and takes a silent snapshot of the intruder for forensic review.
 
 ---
 
-### 4. Hukuki ve Etik Güvenilirlik
-* **Problem:** Kullanıcıların izinsiz çekim yapılması veya habersiz kayıt tutulması endişesi.
-* **Gözcü Çözümü:** Uygulama açılışında zorunlu yasal sorumluluk reddi (Disclaimer & Consent) protokolü bulunur. Kamera izni tamamen opsiyoneldir; izin verilmediğinde dahi kullanıcı simülasyon ve test modlarıyla uygulamayı deneyimleyebilir.
+### 2. Unattended Phone Snooping at Desks & Offices
+* **The Scenario:** You leave your phone on an office desk, conference table, study room, or at home while stepping away for coffee or a break. Curious colleagues or acquaintances attempt to wake the screen or inspect incoming notification previews.
+* **The Danger:** Unauthorized reading of personal notifications, confidential Slack/WhatsApp messages, or passcode guessing attempts.
+* **SnoopGuard Solution (Decoy Trap Screen):** Activates an ultra-realistic fake lockscreen showing real-time clock, date, and modern lock indicators. As soon as unauthorized fingers touch the screen, SnoopGuard captures an immediate silent, flash-free snapshot via the front camera and logs the intrusion with timestamp down to the second. Exit is strictly guarded by the owner's PIN.
 
 ---
 
-## 📱 Ekran Görünümleri ve Mimari Akış
+### 3. Biometric Cloud Anxiety & Data Harvesting
+* **The Scenario:** Existing security apps frequently upload camera snapshots and facial vectors to remote cloud servers, creating grave surveillance and data leakage hazards.
+* **SnoopGuard Solution (100% On-Device Zero-Cloud Architecture):** Every face landmark comparison, image storage, and threat calculation is conducted strictly inside the device's hardware using **Android Jetpack Room SQLite**. No telemetry, no third-party SDKs, and zero internet upload.
+
+---
+
+### 4. Legal Compliance & Explicit Consent
+* **The Principle:** Respecting personal rights and privacy laws.
+* **SnoopGuard Solution:** SnoopGuard incorporates a mandatory **Disclaimer & Explicit Consent Protocol**. Camera access is completely optional; users can test and evaluate all features safely using the built-in Threat Simulator without granting camera permissions.
+
+---
+
+## 📱 App Architecture & User Journey
 
 ```
-+-------------------------------------------------------------------------+
-|                              GÖZCÜ (SnoopGuard)                         |
-|                                                                         |
-|  [🛡️ Güvenlik Kalkanı]              [📸 Olay Günlüğü]        [⚙️ Ayarlar]|
-+-------------------------------------------------------------------------+
-|                                                                         |
-|  1. KALKAN EKRANI (Home Screen)                                          |
-|  +-------------------------------------------------------------------+  |
-|  |  [🔵 Master Switch: Kalkan Aktif / Beklemede]                      |  |
-|  |  [💥 Nabız Atan Kalkan Rozeti: Güvenli (Yeşil) / Tehdit (Kırmızı)]  |  |
-|  |  [👤 Sahip Biyometrisi: Yüz Tanıtıldı / Tanıtılmadı]               |  |
-|  |  [📖 Gözcü Hangi Sorunu Çözer? (Görsel Problem-Çözüm Rehberi)]     |  |
-|  |  [⚡ Koruma Modları: Canlı Kalkan & Sahte Tuzak Ekranı]            |  |
-|  |  [🧪 Güvenli Test Simülatörü (Kamera Olmadan Test İmkânı)]         |  |
-|  +-------------------------------------------------------------------+  |
-|                                                                         |
-|  2. TUZAK KİLİT EKRANI (Decoy Trap)                                     |
-|  +-------------------------------------------------------------------+  |
-|  |  Gerçekçi Saat: 14:45 | Cuma, 7 Eylül                             |  |
-|  |  Ekrana meraklı parmak dokunduğu anda:                            |  |
-|  |  -> Sessiz Flaşsız Ön Kamera Yakalama                              |  |
-|  |  -> Korumalı PIN ile Sahibinin Çıkışı                             |  |
-|  +-------------------------------------------------------------------+  |
-|                                                                         |
-|  3. OLAY KANIT GALERİSİ (Logs Gallery & Forensics)                     |
-|  +-------------------------------------------------------------------+  |
-|  |  Yakalanan Gözetleyiciler Listesi:                                 |  |
-|  |  - Tarih & Saat Damgası                                           |  |
-|  |  - Tehdit Skoru (%92 Şüpheli Bakış)                               |  |
-|  |  - Tetikleme Nedeni (Omuz Dikizleme / Tuzak Kilit Kurcalama)      |  |
-|  |  - Yüksek Çözünürlüklü Ön Kamera Fotoğrafı                         |  |
-|  |  - Tek Tıkla Silme veya Tüm Verileri Temizleme                    |  |
-|  +-------------------------------------------------------------------+  |
-+-------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+|                                 SNOOPGUARD                                        |
+|                                                                                   |
+|  [🛡️ Active Shield]               [📸 Incident Forensics]          [⚙️ Settings]  |
++-----------------------------------------------------------------------------------+
+|                                                                                   |
+|  1. SHIELD DASHBOARD (Home Screen)                                                |
+|  +-----------------------------------------------------------------------------+  |
+|  |  • Master Defense Toggle (Active / Standby)                                 |  |
+|  |  • Real-Time Threat Status Badge (Safe Green / Breach Red)                  |  |
+|  |  • Biometric Profile: Registered Owner vs Unknown Gaze                      |  |
+|  |  • Problem Solver Guide: Real-life scenarios with visual illustrations       |  |
+|  |  • Dual Protection Modes: Live Look Guard & Decoy Trap                      |  |
+|  |  • Built-in Incident Simulator (Zero-camera hardware test mode)             |  |
+|  +-----------------------------------------------------------------------------+  |
+|                                                                                   |
+|  2. DECOY TRAP (Stealth Trap Screen)                                              |
+|  +-----------------------------------------------------------------------------+  |
+|  |  • Hyper-realistic Lock Interface (14:45 | Friday, Sept 7)                  |  |
+|  |  • Invisible Trigger: Touch -> Silent Front Camera Snapshot                  |  |
+|  |  • Secure Passcode Exit to prevent snooper tampering                       |  |
+|  +-----------------------------------------------------------------------------+  |
+|                                                                                   |
+|  3. FORENSICS LOG GALLERY                                                         |
+|  +-----------------------------------------------------------------------------+  |
+|  |  • High-Resolution Intruder Snapshots with Gaze Vectors                     |  |
+|  |  • Detailed Metadata: Timestamp, Incident Type, Threat Confidence (e.g. 94%)|  |
+|  |  • One-Tap Deletion & Total Secure Purge Capabilities                       |  |
+|  +-----------------------------------------------------------------------------+  |
++-----------------------------------------------------------------------------------+
 ```
 
 ---
 
-## ✨ Temel Özellikler
+## ⚡ Core Features & Capabilities
 
-| Özellik | Açıklama |
+| Capability | Engineering & User Benefit |
 | :--- | :--- |
-| **Gerçek Zamanlı Yüz Kalkanı** | Ön kamera vizörü üzerinden ekrana bakan kişi sahibinden farklı mı anlık kıyaslar. |
-| **Omuz Dikizleme Uyarısı** | Yanınızdan ekrana bakan bir yabancı saptandığında ekranda kırmızı uyarı başlığı ve titreşim üretir. |
-| **Tuzak Kilit Ekranı** | Masada bırakıldığında sahte telefon kilit arayüzü sunar; dokunan kişiyi sessizce fotoğraflar. |
-| **Sahip Biyometrik Kaydı** | Ön kamera ile kendi yüzünüzü sisteme tanıtabilir, referans alarak hatalı alarmları önleyebilirsiniz. |
-| **Çözülen Sorunlar Rehberi** | Metro, ofis ve kamusal alan tehditlerini ekran resimli görsel slaytlarla anlatan dahili rehber. |
-| **Sıfır Bulut Bağımlılığı** | Tüm veriler cihaz içinde Room SQLite ile saklanır. Asla internete veri göndermez. |
-| **Hassasiyet & Titreşim Ayarı** | Algılama eşiği 0.1 - 1.0 arasında özelleştirilebilir, titreşim açılıp kapatılabilir. |
+| **Real-Time Live Shield** | Monitors front-facing field of view to verify whether the active gazer matches the registered owner. |
+| **Gaze Vector & Shoulder Alert** | Instantly detects peripheral look-ins from behind or sideways with haptic feedback. |
+| **Decoy Trap Screen** | Deploys a realistic lockscreen while phone is unattended; silently photographs intruders. |
+| **Owner Biometric Registration** | Calibrates baseline facial coordinates locally to prevent false alarms. |
+| **Visual Guide & Scenarios** | Built-in interactive modal breaking down transit, desk, and cloud risks with custom graphics. |
+| **Zero-Cloud Guarantee** | 100% offline functionality. Encrypted Room SQLite local database storage. |
+| **Configurable Sensitivity** | Threshold slider (0.1 - 1.0), customizable haptic patterns, and alert audio settings. |
 
 ---
 
-## 🛠️ Teknoloji Yığını
+## 🛠️ Technology Stack
 
-* **Programlama Dili:** Kotlin 2.0 (Modern DSL & Type Safety)
-* **Kullanıcı Arayüzü:** Jetpack Compose (Material Design 3 - Dark Cyberpunk & Emerald Safe Paleti)
-* **Mimari:** Clean Architecture & MVVM (StateFlow, MutableStateFlow, Coroutines)
-* **Veritabanı:** Android Jetpack Room SQLite + KSP (Kotlin Symbol Processing)
-* **Kamera Yönetimi:** Android CameraX / Accompanist Permissions Entegrasyonu
-* **Görsel Tasarım:** Özel üretilmiş yüksek çözünürlüklü vektör ve konsept güvenlik grafikleri (`img_privacy_hero`, `img_shoulder_surfing`, `snoop_guard_icon`)
+* **Language:** Kotlin 2.0 (Type-safe coroutines & Flow architecture)
+* **UI Framework:** Jetpack Compose with Material Design 3 (M3 Cyberpunk Dark & Emerald Security Theme)
+* **Architecture:** MVVM + Clean Architecture with `StateFlow` and unidirectional data flow
+* **Local Persistence:** Android Jetpack Room SQLite + KSP (Kotlin Symbol Processing)
+* **Vision & Camera:** Android CameraX & Accompanist Dynamic Runtime Permissions
+* **Visual Assets:** Custom high-fidelity illustrations (`img_privacy_hero`, `img_shoulder_surfing`, `snoop_guard_icon`)
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
+## 🏗️ Build & Setup Instructions
 
-### Gereksinimler
-* Android 8.0 (API Level 26) veya daha yenisi
-* Target SDK: 34
-* Gradle 8.x + JDK 17
+### Prerequisites
+* Android Studio Iguana / Jellyfish / Ladybug or Gradle 8.x
+* JDK 17
+* Min SDK: 26 (Android 8.0 Oreo) | Target SDK: 34 (Android 14)
 
-### Derleme (Build)
+### Building from Source
 ```bash
-# Debug APK derleme
+# Clone repository
+git clone https://github.com/your-username/snoopguard-android.git
+cd snoopguard-android
+
+# Build Debug APK
 gradle assembleDebug
 
-# Birim ve Robolectric testlerini çalıştırma
+# Run Robolectric Unit & Visual Tests
 gradle :app:testDebugUnitTest
 ```
 
 ---
 
-## 🔒 Gizlilik, Güvenlik ve Yasal Uyarı
+## 🔒 Privacy, Ethics & Legal Compliance
 
-1. **Yasal Amaç:** Bu uygulama kişisel cihaz güvenliğini ve omuz üzerinden ekran gizliliğini korumak amacıyla geliştirilmiştir.
-2. **Kişisel Verilerin Korunması:** Uygulama tarafından alınan fotoğraflar yalnızca yerel cihaz belleğinde saklanır. Sunucu bağlantısı veya bulut yedekleme yoktur.
-3. **Kullanıcı Onayı:** Uygulamayı ilk kez başlatan kullanıcıların sorumluluk ve gizlilik koşullarını açık rıza ile onaylaması zorunludur. Kullanıcı dilediği an ayarlar menüsünden onayını geri çekebilir ve tüm biyometrik verileri sıfırlayabilir.
+1. **Intended Use:** SnoopGuard is crafted strictly for personal device protection and anti-shoulder surfing deterrence.
+2. **Local Processing:** All biometric vectors and captured photographs remain inside the sandboxed local application storage. No external servers or telemetry are utilized.
+3. **User Consent:** First-run onboarding mandates review of the legal disclaimer. Users can revoke consent and purge all biometric registries at any time via Settings.
 
 ---
 
 <p align="center">
-  <b>Gözcü (SnoopGuard)</b> • Özel Hayatınız Yalnızca Sizin Gözleriniz İçindir.
+  <b>SnoopGuard</b> • Your Screen Is For Your Eyes Only.
 </p>
