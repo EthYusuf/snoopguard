@@ -13,12 +13,17 @@
 
 You can directly download and test the compiled Android package or attach it to your **GitHub Releases**:
 
-* 📦 **Repository Location:** [`/release/snoopguard-v1.0.0-release.apk`](release/snoopguard-v1.0.0-release.apk)
+* 📦 **Direct Root Location:** [`snoopguard.apk`](snoopguard.apk)
+* 📦 **Release Folder:** [`release/snoopguard-v1.0.0-release.apk`](release/snoopguard-v1.0.0-release.apk)
 * 🚀 **GitHub Releases Tag:** `v1.0.0`
 * 📱 **Minimum OS Requirement:** Android 8.0+ (API 26+)
 * 🔐 **Permissions:** Camera (100% Optional & On-Device), Vibration, Local Storage
 
-> **Tip for GitHub Releases:** When creating a new Release on GitHub, tag it as `v1.0.0` and drag-and-drop the file from `release/snoopguard-v1.0.0-release.apk` directly into the release assets area.
+> **How to create GitHub Release with this APK:**
+> 1. In your GitHub repository, click on **Releases** -> **Create a new release** (or **Draft a new release**).
+> 2. Set tag version to `v1.0.0` and title to `SnoopGuard v1.0.0 Initial Release`.
+> 3. Under **Attach binaries by dropping them here**, drag and drop `snoopguard.apk` (or `release/snoopguard-v1.0.0-release.apk`).
+> 4. Click **Publish release**. Done! Users can now download the APK directly from your GitHub Releases page.
 
 ---
 
