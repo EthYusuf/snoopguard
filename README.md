@@ -35,7 +35,7 @@
 
 You can directly download and test the compiled Android package or attach it to your **GitHub Releases**:
 
-* 📦 **Release Folder:** [`release/releases/tag/v.0.0.1`](snoopguard.apk)
+* 📦 **Release Folder:** [`releases/tag/v.0.0.1`](snoopguard.apk)
 * 🚀 **GitHub Releases Tag:** `v1.0.0`
 * 📱 **Minimum OS Requirement:** Android 8.0+ (API 26+)
 * 🔐 **Permissions:** Camera (100% Optional & On-Device), Vibration, Local Storage
