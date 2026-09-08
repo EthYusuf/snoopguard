@@ -5,7 +5,7 @@
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4.svg?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/jetpack/compose)
 [![Privacy First](https://img.shields.io/badge/Privacy-100%25%20On--Device-00C853.svg?style=for-the-badge)](https://developer.android.com)
 [![Zero Cloud](https://img.shields.io/badge/Cloud%20Upload-ZERO-D50000.svg?style=for-the-badge)](https://developer.android.com)
-[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](snoopguard.apk)
+[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](https://github.com/EthYusuf/secretOS/releases/download/v.0.0.1/snoopguard.1.apk)
 
 <p align="center">
   <img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard Problem Solution Overview" width="100%" />
@@ -35,7 +35,7 @@
 
 You can directly download and test the compiled Android package or attach it to your **GitHub Releases**:
 
-* 📦 **Release Folder:** [`releases/tag/v.0.0.1`](snoopguard.apk)
+* 📦 **Release Folder:** [`releases/tag/v.0.0.1`](https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1)
 * 🚀 **GitHub Releases Tag:** `v1.0.0`
 * 📱 **Minimum OS Requirement:** Android 8.0+ (API 26+)
 * 🔐 **Permissions:** Camera (100% Optional & On-Device), Vibration, Local Storage
@@ -50,31 +50,31 @@ You can directly download and test the compiled Android package or attach it to 
 
 ## 📌 Real-World Problems SnoopGuard Solves
 
-Smartphones contain our most private assets: **mobile banking, biometric credentials, sensitive family chats, private photos, and enterprise communications**. However, in public or shared spaces, screen privacy is consistently compromised.
+Smartphones contain our most private assets: **mobile banking, biometric credentials, sensitive family chats, private photos, and enterprise communications**. However, in public or shared spaces, [...]
 
 ### 1. The "Shoulder Surfing" Dilemma in Public Transit & Cafes
-* **The Scenario:** You are checking your crypto wallet, mobile banking balance, or reading intimate messages on the subway, bus, plane, or in a busy cafe. Strangers standing behind or sitting next to you gaze at your screen unnoticed.
+* **The Scenario:** You are checking your crypto wallet, mobile banking balance, or reading intimate messages on the subway, bus, plane, or in a busy cafe. Strangers standing behind or sitting nex[...]
 * **The Danger:** More than 70% of credential leaks in public occur due to visual hacking (shoulder surfing). Most users are forced to awkwardly cup their screens with their hands.
-* **SnoopGuard Solution (Live Shield):** Using front-camera gaze analysis, the local on-device neural engine detects foreign faces looking directly at your screen. The moment an unauthorized gaze crosses the threshold, SnoopGuard delivers a discreet vibration alert, highlights the intrusion with a red threat perimeter, and takes a silent snapshot of the intruder for forensic review.
+* **SnoopGuard Solution (Live Shield):** Using front-camera gaze analysis, the local on-device neural engine detects foreign faces looking directly at your screen. The moment an unauthorized gaze [...]
 
 ---
 
 ### 2. Unattended Phone Snooping at Desks & Offices
-* **The Scenario:** You leave your phone on an office desk, conference table, study room, or at home while stepping away for coffee or a break. Curious colleagues or acquaintances attempt to wake the screen or inspect incoming notification previews.
+* **The Scenario:** You leave your phone on an office desk, conference table, study room, or at home while stepping away for coffee or a break. Curious colleagues or acquaintances attempt to wake [...]
 * **The Danger:** Unauthorized reading of personal notifications, confidential Slack/WhatsApp messages, or passcode guessing attempts.
-* **SnoopGuard Solution (Decoy Trap Screen):** Activates an ultra-realistic fake lockscreen showing real-time clock, date, and modern lock indicators. As soon as unauthorized fingers touch the screen, SnoopGuard captures an immediate silent, flash-free snapshot via the front camera and logs the intrusion with timestamp down to the second. Exit is strictly guarded by the owner's PIN.
+* **SnoopGuard Solution (Decoy Trap Screen):** Activates an ultra-realistic fake lockscreen showing real-time clock, date, and modern lock indicators. As soon as unauthorized fingers touch the scr[...]
 
 ---
 
 ### 3. Biometric Cloud Anxiety & Data Harvesting
 * **The Scenario:** Existing security apps frequently upload camera snapshots and facial vectors to remote cloud servers, creating grave surveillance and data leakage hazards.
-* **SnoopGuard Solution (100% On-Device Zero-Cloud Architecture):** Every face landmark comparison, image storage, and threat calculation is conducted strictly inside the device's hardware using **Android Jetpack Room SQLite**. No telemetry, no third-party SDKs, and zero internet upload.
+* **SnoopGuard Solution (100% On-Device Zero-Cloud Architecture):** Every face landmark comparison, image storage, and threat calculation is conducted strictly inside the device's hardware using *[...]
 
 ---
 
 ### 4. Legal Compliance & Explicit Consent
 * **The Principle:** Respecting personal rights and privacy laws.
-* **SnoopGuard Solution:** SnoopGuard incorporates a mandatory **Disclaimer & Explicit Consent Protocol**. Camera access is completely optional; users can test and evaluate all features safely using the built-in Threat Simulator without granting camera permissions.
+* **SnoopGuard Solution:** SnoopGuard incorporates a mandatory **Disclaimer & Explicit Consent Protocol**. Camera access is completely optional; users can test and evaluate all features safely usi[...]
 
 ---
 
