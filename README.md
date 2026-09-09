@@ -20,13 +20,12 @@ SnoopGuard, ön kamerayı kullanarak ekrana kimin baktığını **yerel olarak**
 
 ## Hızlı Başlangıç
 
-**Kurulum:**
 ```bash
 git clone https://github.com/EthYusuf/snoopguard.git
 cd snoopguard
 ./gradlew assembleDebug
 ```
-APK: `app/build/outputs/apk/debug/`. Hazır paket için [Releases](https://github.com/EthYusuf/snoopguard/releases) sayfasına bakın.
+APK: `app/build/outputs/apk/debug/`. Hazır paket için [Releases](https://github.com/EthYusuf/snoopguard/releases) sayfasına bakın. Ortam değişkenleri, imzalama, bağımlılık grupları ve olası kurulum hataları için ayrıntılı [Installation & Dependencies](#installation--dependencies--kurulum-ve-bağımlılıklar) bölümüne bakın.
 
 **Kullanım:** Sahip yüzünüzü kaydedin → bir koruma modu seçin (Canlı Kalkan / Tuzak Ekranı / Gizli Gözcü) → duyarlılığı ayarlayın → tespit edilen olayları Forensic Gallery'den inceleyin. Ayrıntılı adımlar [Nasıl Çalışır](#nasıl-çalışır--how-it-works) ve [Key Features](#key-features--öne-çıkan-özellikler) bölümlerinde.
 
@@ -38,6 +37,7 @@ APK: `app/build/outputs/apk/debug/`. Hazır paket için [Releases](https://githu
 - [Nasıl Çalışır (How It Works)](#nasıl-çalışır--how-it-works)
 - [Architecture Diagram](#architecture-diagram--mimari-akış)
 - [Project Structure](#project-structure--proje-yapısı)
+- [Installation & Dependencies](#installation--dependencies--kurulum-ve-bağımlılıklar)
 - [Technical Specifications](#technical-specifications--teknik-özellikler)
 - [Permissions](#permissions--izinler)
 - [Data Flow](#data-flow--veri-akışı)
@@ -170,22 +170,112 @@ app/src/main/java/com/example/
 
 Katmanlar arası akış: **UI → ViewModel → Repository → DAO/Room**. Ayrı bir domain/use-case katmanı yoktur; iş mantığı `SnooperRepository` içinde toplanmıştır.
 
+## Installation & Dependencies — Kurulum ve Bağımlılıklar
+
+### 1. Ön Gereksinimler
+
+| Araç | Gerekli Sürüm | Not |
+|---|---|---|
+| JDK | 17 veya üzeri | `sourceCompatibility`/`targetCompatibility` Java 11 olsa da derleme araç zinciri JDK 17 bekler |
+| Android Studio | Iguana / Jellyfish / Ladybug veya sonrası | AGP 9.1.1 ile uyumlu güncel bir sürüm önerilir |
+| Android SDK | Platform 36, Build-Tools 36.x | `compileSdk`/`targetSdk = 36` |
+| Gradle | Ayrıca kurmanıza gerekmez | Proje **Gradle Wrapper 9.3.1** ile gelir (`./gradlew` otomatik indirir) |
+| Git | Herhangi bir güncel sürüm | Depoyu klonlamak için |
+| Fiziksel Android cihaz (önerilir) | Android 7.0+ | Gerçek kamera/yüz tespiti testleri için; emülatörde de çalışır ama kamera sınırlıdır |
+
+### 2. Depoyu Klonlama
+
+```bash
+git clone https://github.com/EthYusuf/snoopguard.git
+cd snoopguard
+```
+
+### 3. Ortam Değişkenleri / Gizli Anahtarlar (Opsiyonel)
+
+Proje, [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) kullanır ve kök dizindeki `.env.example` dosyasını şablon olarak alır:
+
+```bash
+# .env.example içeriği:
+# GEMINI_API_KEY=MY_GEMINI_API_KEY   (yorum satırı, varsayılan olarak devre dışı)
+```
+
+Standart kurulum ve derleme için **bu adım zorunlu değildir** — `.env` dosyası oluşturmazsanız derleme yine çalışır. Bu değişken, projenin Google AI Studio şablonundan kalan, şu an kod tabanında aktif olarak kullanılmayan bir Gemini API entegrasyon noktasıdır.
+
+`gradle.properties` içindeki `googleServices.missing.passthrough=true` ayarı sayesinde, **`google-services.json` dosyası olmasa da proje derlenir** — Firebase App Check eklentisi yalnızca uyarı verir, derlemeyi durdurmaz.
+
+### 4. Derleme
+
+```bash
+# Bağımlılıkları indirip debug APK üretir
+./gradlew clean assembleDebug
+
+# Çıktı: app/build/outputs/apk/debug/app-debug.apk
+```
+
+**Release derlemesi** için imzalama yapılandırması gereklidir (`app/build.gradle.kts` → `signingConfigs.release`):
+
+```bash
+export KEYSTORE_PATH=/güvenli/yol/my-upload-key.jks
+export STORE_PASSWORD=****
+export KEY_PASSWORD=****
+./gradlew assembleRelease
+```
+
+Bu ortam değişkenleri tanımlı değilse `KEYSTORE_PATH` varsayılan olarak `${rootDir}/my-upload-key.jks`'a düşer; bu dosya repoda **bulunmadığından** ortam değişkenlerini kendiniz sağlamanız gerekir. Debug derlemesi ise repoda hazır bulunan `debug.keystore` (`storePassword`/`keyAlias`/`keyPassword` = `android`) ile otomatik imzalanır, ek yapılandırma gerektirmez.
+
+### 5. Uygulamayı Cihaza Yükleme
+
+```bash
+./gradlew installDebug
+# veya Android Studio üzerinden Run ▶ tuşuyla
+```
+
+### 6. Bağımlılık Grupları (gradle/libs.versions.toml'dan)
+
+| Kategori | Bağımlılıklar |
+|---|---|
+| **Compose / UI** | `compose-bom (2024.09.00)`, `compose-ui`, `compose-material3`, `material-icons-extended`, `activity-compose (1.10.1)` |
+| **Kamera** | `camera-core`, `camera-camera2`, `camera-lifecycle`, `camera-view` (tümü `1.5.0`) |
+| **Yüz Tespiti** | `mlkit-face-detection (16.1.7)` |
+| **Veritabanı** | `room-runtime`, `room-ktx`, `room-compiler` (tümü `2.7.0`, KSP ile) |
+| **Eşzamanlılık** | `kotlinx-coroutines-core` / `-android (1.10.2)`, `lifecycle-runtime-ktx (2.8.7)` |
+| **İzinler** | `accompanist-permissions (0.37.3)` |
+| **Görsel Yükleme** | `coil-compose (2.7.0)` |
+| **Firebase** | `firebase-bom (34.17.0)`, `firebase-appcheck-recaptcha`, `firebase-appcheck-debug` |
+| **Test** | `junit (4.13.2)`, `robolectric (4.16.1)`, `espresso-core (3.7.0)`, `roborazzi (1.59.0)` |
+| **Kullanılmayan / yorumlu bağımlılıklar** | `retrofit`, `okhttp`, `moshi`, `datastore-preferences`, `navigation-compose`, `play-services-location`, `firebase-auth`, `firebase-firestore` — `build.gradle.kts` içinde tanımlı ama satırları yorumlanmış, aktif kullanılmıyor |
+
+Kullanılan Gradle deposu kaynakları (`settings.gradle.kts`): `google()`, `mavenCentral()`, `gradlePluginPortal()`.
+
+### 7. Sık Karşılaşılan Kurulum Sorunları
+
+| Sorun | Çözüm |
+|---|---|
+| `Could not connect to Kotlin compile daemon` | Proje zaten `kotlin.compiler.execution.strategy=in-process` ile önlem alıyor; tekrar ederse `./gradlew --stop` sonra yeniden deneyin |
+| `google-services.json bulunamadı` uyarısı | Beklenen davranıştır (`missingGoogleServicesStrategy = WARN`); derlemeyi durdurmaz, göz ardı edebilirsiniz |
+| Release imzalama hatası | `KEYSTORE_PATH` / `STORE_PASSWORD` / `KEY_PASSWORD` ortam değişkenlerinin tanımlı olduğundan emin olun |
+| Yavaş ilk derleme | `org.gradle.caching=true` ve `org.gradle.parallel=true` zaten etkin; ilk indirme (Compose BOM, Firebase BOM) zaman alabilir |
+
 ## Technical Specifications — Teknik Özellikler
 
 | Alan | Değer |
 |---|---|
-| Dil | Kotlin 2.0 |
-| UI Framework | Jetpack Compose, Material 3 |
+| Dil | Kotlin 2.2.10 |
+| UI Framework | Jetpack Compose (BOM 2024.09.00), Material 3 |
 | Mimari | MVVM (StateFlow + Coroutines) |
 | minSdk | 24 (Android 7.0) |
 | targetSdk / compileSdk | 36 |
-| Kamera | CameraX |
-| Yüz Tespiti | Google ML Kit Face Detection |
-| Veritabanı | Room (tek tablo: `snooper_logs`) |
+| Android Gradle Plugin (AGP) | 9.1.1 |
+| Gradle Wrapper | 9.3.1 |
+| Kamera | CameraX 1.5.0 |
+| Yüz Tespiti | Google ML Kit Face Detection 16.1.7 |
+| Veritabanı | Room 2.7.0 (tek tablo: `snooper_logs`) |
+| Kod Üretimi | KSP 2.3.5 (Room derleyicisi için) |
 | Ayarlar | SharedPreferences |
-| Build Sistemi | Gradle 8.x (Kotlin DSL), KSP |
 | JDK | 17+ (kaynak/hedef uyumluluk: Java 11) |
-| Test | JUnit, Robolectric, Espresso, Roborazzi |
+| Test | JUnit 4.13.2, Robolectric 4.16.1, Espresso 3.7.0, Roborazzi 1.59.0 |
+
+> Sürüm bilgileri `gradle/libs.versions.toml` ve `gradle/wrapper/gradle-wrapper.properties` dosyalarından doğrudan alınmıştır. Tam bağımlılık listesi ve kurulum adımları için [Installation & Dependencies](#installation--dependencies--kurulum-ve-bağımlılıklar) bölümüne bakın.
 
 ## Permissions — İzinler
 
