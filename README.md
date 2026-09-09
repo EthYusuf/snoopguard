@@ -2,444 +2,370 @@
 
 # 🛡️ SnoopGuard
 
-### Ekranınız Yalnızca Sizin Gözleriniz İçin
+**Ekranınız Yalnızca Sizin Gözleriniz İçin**
 
-*On-cihaz gizlilik koruması. Omuz sörfü ve cihaz gözetlemeye karşı akıllı koruma.*
+On-cihaz gizlilik koruması — omuz sörfüne ve cihaz gözetlemesine karşı yerel yüz analizi.
 
----
-
-**[🚀 Hızlı Başlangıç](#-hızlı-başlangıç)** • **[📖 Özellikler](#-temel-özellikler)** • **[🔧 Teknik](#-teknoloji-yığını)** • **[🤝 Katkıda Bulunun](#-katkıda-bulunun)**
-
-![SnoopGuard Banner](docs/screenshots/problem_guide_banner.jpg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/EthYusuf/snoopguard/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Android%207.0%2B-3DDC84.svg?logo=android&logoColor=white)](#technical-specifications--teknik-özellikler)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0-7F52FF.svg?logo=kotlin&logoColor=white)](#technical-specifications--teknik-özellikler)
 
 </div>
 
 ---
 
-## 🎯 SnoopGuard Nedir?
+## Amaç
 
-SnoopGuard, modern akıllı telefonların hassas bilgilerini koruyan, **gizlilik-odaklı** bir Android güvenlik uygulamasıdır.
+SnoopGuard, ön kamerayı kullanarak ekrana kimin baktığını **yerel olarak** analiz eden bir Android gizlilik uygulamasıdır. Kayıtlı cihaz sahibini tanır; yabancı bir yüz veya arkadan bakan ikinci bir kişi tespit ettiğinde uyarır ve kanıt fotoğrafını cihazda saklar. Amaç, şifreleme veya kilit ekranının yerine geçmek değil, bu mekanizmaların kapsamadığı **"cihazım açıkken kim ekranıma bakıyor?"** sorusuna pratik bir yanıt vermektir.
 
-📱 Özel sohbetler • 🔐 Kimlik doğrulama kodları • 📸 Fotoğraflar • 💰 Finansal uygulamalar • 🔑 Kişisel hesaplar
+## Hızlı Başlangıç
 
-SnoopGuard iki yaygın tehdide karşı koruma sağlar:
-
-| 👁️ Omuz Sörfü | 📱 Gözeticiliği |
-|:---|:---|
-| Birisi cihazınızı kullanırken ekranınızı görüyor | Birisi cihazınızdan ayrıldığınız sırada müdahale ediyor |
-
----
-
-## 🚀 Hızlı Başlangıç
-
-### ⬇️ İndir ve Kur
-
+**Kurulum:**
 ```bash
-# APK dosyasını indir
-# GitHub Releases → snoopguard v.0.0.1
-
-# 1. APK dosyasını Android cihazına aktar
-# 2. Uygulamayı yükle
-# 3. İzinleri gözden geçir
-# 4. Koruma özelliklerini etkinleştir
-```
-
-### 📥 Kaynak Kodundan Derle
-
-```bash
-# Repository'yi klonla
-git clone https://github.com/EthYusuf/secretOS.git
-cd secretOS
-
-# Projeyi temizle
-./gradlew clean
-
-# Debug APK oluştur
+git clone https://github.com/EthYusuf/snoopguard.git
+cd snoopguard
 ./gradlew assembleDebug
-
-# Testleri çalıştır
-./gradlew :app:testDebugUnitTest
-./gradlew :app:connectedDebugAndroidTest
-
-# Release APK oluştur
-./gradlew assembleRelease
 ```
+APK: `app/build/outputs/apk/debug/`. Hazır paket için [Releases](https://github.com/EthYusuf/snoopguard/releases) sayfasına bakın.
+
+**Kullanım:** Sahip yüzünüzü kaydedin → bir koruma modu seçin (Canlı Kalkan / Tuzak Ekranı / Gizli Gözcü) → duyarlılığı ayarlayın → tespit edilen olayları Forensic Gallery'den inceleyin. Ayrıntılı adımlar [Nasıl Çalışır](#nasıl-çalışır--how-it-works) ve [Key Features](#key-features--öne-çıkan-özellikler) bölümlerinde.
 
 ---
 
-## 🛡️ Temel Özellikler
+## İçindekiler
 
-### 🎨 Üç Güçlü Modül
-
-<div align="center">
-
-| 🛡️ Live Shield | 🎭 Decoy Trap | 🧾 Forensic Gallery |
-|:---:|:---:|:---:|
-| **Gerçek Zamanlı Koruma** | **Kilit Ekranı Koruması** | **İncele ve Analiz Et** |
-| Kamerayla gözetleme tespiti | Gözeticilere karşı tuzak | Olayların tarihçesi |
-| Yüz tanıma analizi | Otomatik fotoğraf çekme | Kanıt depolama |
-| Bakış yönü analizi | Sahip-sadece çıkış | Özgüvenlik düzeyi |
-
-</div>
-
-### ✨ Detaylı Özellik Listesi
-
-#### 🛡️ Live Shield — Gerçek Zamanlı Gözlemci Tespiti
-
-- ✅ Cihaz kamerası kullanarak gerçek zamanlı tehdit analizi
-- ✅ Sahip biyometrik profili oluşturma
-- ✅ Yüz landmark ve bakış yönü analizi
-- ✅ Yapılandırılabilir duyarlılık seviyeleri
-- ✅ Görsel uyarı ve titreşim geribildirim
-- ✅ İsteğe bağlı ses uyarıları
-- ✅ Tüm işlem cihazda kalır (bulut yok!)
-- ✅ Gösteri modu (kamera olmadan keşfet)
-
-#### 🎭 Decoy Trap — Atıl Cihaz Koruması
-
-- ✅ Kilit ekranı tarzında koruma arayüzü
-- ✅ Girişim anında otomatik fotoğraf çekme
-- ✅ Sahip-sadece kimlik doğrulama ile çıkış
-- ✅ Yerel olarak depolanan kanıt
-- ✅ Zaman damgalı olay kaydı
-- ✅ Zamanı ve tarihi dinamik gösterimi
-- ✅ Manipülasyona karşı tasarlanmış akış
-
-#### 🧾 Forensic Gallery — Yerel Olay Geçmişi
-
-- ✅ Girişimcilerin anlık fotoğrafları
-- ✅ Tam tarih ve saat bilgisi
-- ✅ Tespit güvenlik yüzdesi
-- ✅ Olayların sınıflandırılması
-- ✅ Tek tek kanıt silme
-- ✅ Tam veri temizliği seçeneği
-- ✅ Kanıt dışa aktarma özellikleri
+- [Key Features](#key-features--öne-çıkan-özellikler)
+- [Nasıl Çalışır (How It Works)](#nasıl-çalışır--how-it-works)
+- [Architecture Diagram](#architecture-diagram--mimari-akış)
+- [Project Structure](#project-structure--proje-yapısı)
+- [Technical Specifications](#technical-specifications--teknik-özellikler)
+- [Permissions](#permissions--izinler)
+- [Data Flow](#data-flow--veri-akışı)
+- [Security & Privacy](#security--privacy--güvenlik-ve-gizlilik)
+- [Testing](#testing--test)
+- [Build Status / CI](#build-status--ci)
+- [Release / Versioning](#release--versioning)
+- [Roadmap](#roadmap)
+- [Known Limitations](#known-limitations--bilinen-sınırlamalar)
+- [Responsible Use](#responsible-use--sorumlu-kullanım)
+- [Contributing](#contributing--katkıda-bulunma)
+- [License](#license--lisans)
+- [Acknowledgements](#acknowledgements--teşekkürler)
+- [Author / Credits](#author--credits)
+- [Repository Links](#repository-links)
+- [FAQ](#faq--sık-sorulan-sorular)
+- [Compatibility](#compatibility--uyumluluk)
+- [Performance Considerations](#performance-considerations--performans-notları)
+- [Privacy / Security Disclaimer](#privacy--security-disclaimer)
 
 ---
 
-## 🔐 Gizlilik Tasarım İlkeleri
+## Key Features — Öne Çıkan Özellikler
 
-SnoopGuard, **gizlilik ilk** mimarisiyle inşa edilmiştir.
+**🛡️ Canlı Kalkan (`LIVE_SHIELD`)**
+- Ön kamera ile sürekli, ekrana bakan kişileri analiz eder
+- Sahip profiliyle eşleşmeyen yüzde anlık uyarı (görsel + titreşim)
+- Ayarlanabilir duyarlılık (0.55–0.80 eşik aralığı)
 
-### 📡 Bulut Yok, Veri Güvenliği Var
+**🎭 Tuzak Ekranı (`DECOY_TRAP`)**
+- Cihaz atıl haldeyken sahte kilit ekranı gösterir
+- Dokunulduğu anda gizlice fotoğraf çeker
+- Yalnızca sahibin doğrulamasıyla çıkış
 
-| ✅ Cihazda İşleme | ❌ Buluta Gönderilmez |
-|:---|:---|
-| Yüz analizi | Bulut sunucuları |
-| Bakış yönü işlemi | Uzak biyometrik işlem |
-| Tehdit değerlendirmesi | Üçüncü taraf analitik |
-| Görüntü işleme | Zorunlu hesap altyapısı |
-| Olay depolama | Remote güvenlik arka ucu |
-| Tespit metadata |  |
+**🕵️ Gizli Gözcü (`SENSITIVE_STEALTH`)**
+- Daha düşük analiz sıklığıyla arka planda çalışır
+- Pil tüketimini azaltmayı önceliklendirir
 
-### 🎛️ Kullanıcı Kontrolü
+**🧾 Forensic Gallery**
+- Tespit edilen tüm olayların zaman damgalı listesi
+- Güven skoru, yüz sayısı ve bakış açısı meta verisi
+- Tekil / toplu kanıt silme
 
-- 📷 Kamera izinleri
-- 🔑 Biyometrik profil yönetimi
-- 🗑️ Kanıt silme seçenekleri
-- 🔄 Tam yerel veri temizliği
-- 📊 Gösteri modu
+**👤 Sahip Kaydı**
+- Tek seferlik kurulum ile geometrik yüz profili oluşturma
+- Profil `SharedPreferences` içinde yerel olarak saklanır
 
----
+**🧪 Gösteri / Simülasyon Modu**
+- Kamerasız cihazlarda veya emülatörde gerçekçi sahte tespit üretir
 
-## 🧠 Nasıl Çalışır?
+<details>
+<summary>📸 Ekran Görüntüleri (repodaki <code>docs/screenshots</code> içeriği)</summary>
 
-### 🔄 Tehdit Tespiti Akışı
+| Ana Ekran (Shield Dashboard) | Tuzak Ekranı Uyarısı | Forensic Gallery |
+|---|---|---|
+| ![Home](screenshots/home_shield.jpg) | ![Decoy Trap](screenshots/decoy_trap.jpg) | ![Forensics](screenshots/forensics_log.jpg) |
 
-```
-Kamera Girişi
-     ↓
-   ┌─────────────────┐
-   │  Yerel Görüntü  │
-   │  Analizi        │
-   └────────┬────────┘
-            ↓
-   ┌─────────────────┐
-   │  Tehdit         │
-   │  Değerlendirmesi│
-   └────────┬────────┘
-            ├──────────→ Tehdit Yok
-            ↓
-   ┌─────────────────┐
-   │  Koruma         │
-   │  Yanıtı         │
-   └────────┬────────┘
-            ├──→ Görsel Uyarı
-            ├──→ Titreşim
-            ├──→ Ses Uyarısı
-            └──→ Olay Kaydı
-                    ↓
-            ┌────────────────┐
-            │  Yerel Kanıt   │
-            │  Depolama      │
-            └────────────────┘
+> Bu görseller repodaki `docs/screenshots/` klasöründen alınmıştır ve konsept/arayüz mockup'larıdır; gerçek cihaz ekran görüntüsü (device screen capture) olarak sunulmamalıdır.
+
+</details>
+
+## Nasıl Çalışır — How It Works
+
+```mermaid
+flowchart TD
+    A[Ön Kamera Karesi] --> B[ML Kit Face Detection\nyerel, cihaz üzerinde]
+    B --> C{Kaç yüz var?}
+    C -->|0 yüz| D[Tehdit Yok]
+    C -->|1 yüz = sahip| D
+    C -->|1 yüz ≠ sahip| E[Yabancı Yüz Tespiti]
+    C -->|2+ yüz| F[Arkadan Bakan Biri]
+    E --> G[Olay Kaydı Oluştur]
+    F --> G
+    G --> H[Fotoğrafı Zaman Damgasıyla Kaydet]
+    H --> I[Görsel + Titreşim Uyarısı]
 ```
 
-### 📋 Koruma İş Akışı
+Sahip tanıma, derin öğrenme tabanlı embedding değil, **geometrik oran karşılaştırması** ile yapılır: göz-arası mesafe / yüz genişliği oranı ve yüz yüksekliği / genişliği oranı, kayıtlı profille karşılaştırılır. Detaylı formül [Known Limitations](#known-limitations--bilinen-sınırlamalar) bölümünde not edilmiştir.
 
-1. **Sahip Kurulumu** → Profil oluştur
-2. **Korumayı Etkinleştir** → İstediğin özellikleri aç
-3. **Yerel Analiz** → Cihazda akıllı işlem
-4. **Tehdit Tespit** → Otomat yanıt (uyarı, titreşim, kaydı)
-5. **Kanıt Depolama** → Tüm veriler cihazda kalır
-6. **Adli İnceleme** → Forensic Gallery'de gözden geçir
+## Architecture Diagram — Mimari Akış
 
----
+```mermaid
+flowchart LR
+    subgraph Cihaz_Servisleri
+        CX[CameraX]
+    end
+    subgraph Detection
+        ML[Google ML Kit\nFace Detection]
+        FAE[FaceAnalysisEngine]
+    end
+    subgraph UI
+        VM[SnoopGuardViewModel\nStateFlow]
+    end
+    subgraph Data
+        REPO[SnooperRepository]
+        ROOM[(Room DB\nsnooper_logs)]
+        PREFS[(SharedPreferences\nOwnerProfile)]
+    end
 
-## 🏗️ Uygulama Mimarisi
-
-```
-┌─────────────────────────────────────┐
-│       UI / SUNUM KATMANI            │
-│    Jetpack Compose + Material 3     │
-├─────────────────────────────────────┤
-│          VİEW MODELLERİ             │
-│      StateFlow + UI Durum           │
-├─────────────────────────────────────┤
-│         DOMAIN (İŞ LOGICI)          │
-│   Güvenlik • Tespit • Kullanım Durumları   │
-├─────────────────────────────────────┤
-│          VERİ KATMANI               │
-│   Room • Yerel Depolama • Modeller  │
-├─────────────────────────────────────┤
-│      CİHAZ SERVİSLERİ               │
-│  CameraX • Android APIs • Yerel ML  │
-└─────────────────────────────────────┘
-```
-
----
-
-## ⚡ Teknik Özellikler
-
-| 🎯 Özellik | 📝 Açıklama |
-|:---|:---|
-| **Live Shield** | Kamera tabanlı gözetleme izleme |
-| **Gaze Analizi** | Yüz landmark ve bakış yönü analizi |
-| **Decoy Trap** | Atıl cihaz kilit ekranı koruması |
-| **Biyometrik Profil** | Sahip profilini yerel kalibrasyon |
-| **Forensic Gallery** | Zaman damgalı olay geçmişi |
-| **Duyarlılık Kontrolü** | Ayarlanabilir koruma seviyeleri |
-| **Gösteri Modu** | Kamera olmadan keşfet |
-| **Yerel Depolama** | Tüm kanıtlar cihazda kalır |
-| **Gizlilik Kontrolleri** | Profil, izin ve veri yönetimi |
-
----
-
-## 🧰 Teknoloji Yığını
-
-```
-🏛️ Mimari          Kotlin 2.0, Clean Architecture, MVVM
-🎨 Arayüz          Jetpack Compose, Material Design 3
-📱 Platform        Android 8.0+ (API 26+)
-🔄 Durum Yönetimi  StateFlow, Kotlin Coroutines
-💾 Veri            Room Database, Local Storage
-📷 Kamera          CameraX (Hardware Abstraction)
-🤖 Makine Öğrenmesi TensorFlow Lite, NNAPI
-🔧 Derleme         Gradle 8.x+, JDK 17+
+    CX -->|Bitmap kare| FAE
+    FAE -->|InputImage| ML
+    ML -->|Face landmarks| FAE
+    FAE -->|FaceAnalysisResult| VM
+    VM -->|kayıt isteği| REPO
+    REPO --> ROOM
+    REPO --> PREFS
+    ROOM -->|Flow<List<SnooperLog>>| VM
 ```
 
----
+Bu akış, kod tabanındaki gerçek sınıf isimleriyle birebir eşleşir (`CameraManager`, `FaceAnalysisEngine`, `SnoopGuardViewModel`, `SnooperRepository`, `AppDatabase`).
 
-## 📱 Sistem Gereksinimleri
+## Project Structure — Proje Yapısı
 
-### Minimum Gereksinimler
-
-| 📋 Gereksinim | 📌 Versiyon |
-|:---|:---|
-| **Android** | 8.0 veya daha yeni (API 26+) |
-| **JDK** | 17 veya daha yeni |
-| **Gradle** | 8.x veya daha yeni |
-| **Kamera** | Ön kamera (bazı özellikler için) |
-
-### Önerilen Geliştirme Ortamı
-
-- **Android Studio**: Iguana, Jellyfish, Ladybug veya daha yeni
-- **Cihaz**: Fiziksel Android cihaz (kamera özelikleri için)
-- **Emülatör**: UI ve kamera olmayan testler için
-
----
-
-## 🧪 Test Etme
-
-### UI & Fonksiyonel Testler
-```bash
-# Gösteri modunu dene (kamera almadan!)
+```
+app/src/main/java/com/example/
+├── MainActivity.kt              Giriş noktası (Compose kökü)
+├── detection/
+│   ├── CameraManager.kt         CameraX bağlama, kare/fotoğraf yakalama
+│   └── FaceAnalysisEngine.kt    ML Kit entegrasyonu, benzerlik hesaplama
+├── data/
+│   ├── model/                   OwnerProfile, SnooperLog
+│   ├── db/                      AppDatabase, SnooperDao (Room)
+│   └── repository/              SnooperRepository (iş mantığı)
+└── ui/
+    ├── SnoopGuardViewModel.kt   Tek ViewModel, uygulama durumu
+    ├── screens/                 HomeScreen, LogsGalleryScreen, SettingsScreen
+    ├── components/               CameraViewfinder, DecoyTrapScreen, diyaloglar
+    └── theme/                    Color, Type, Theme
 ```
 
-### Birim Testleri
+Katmanlar arası akış: **UI → ViewModel → Repository → DAO/Room**. Ayrı bir domain/use-case katmanı yoktur; iş mantığı `SnooperRepository` içinde toplanmıştır.
+
+## Technical Specifications — Teknik Özellikler
+
+| Alan | Değer |
+|---|---|
+| Dil | Kotlin 2.0 |
+| UI Framework | Jetpack Compose, Material 3 |
+| Mimari | MVVM (StateFlow + Coroutines) |
+| minSdk | 24 (Android 7.0) |
+| targetSdk / compileSdk | 36 |
+| Kamera | CameraX |
+| Yüz Tespiti | Google ML Kit Face Detection |
+| Veritabanı | Room (tek tablo: `snooper_logs`) |
+| Ayarlar | SharedPreferences |
+| Build Sistemi | Gradle 8.x (Kotlin DSL), KSP |
+| JDK | 17+ (kaynak/hedef uyumluluk: Java 11) |
+| Test | JUnit, Robolectric, Espresso, Roborazzi |
+
+## Permissions — İzinler
+
+| İzin | Neden İsteniyor |
+|---|---|
+| `android.permission.CAMERA` | Ön kamera karelerini yakalayıp yerel yüz analizi yapmak için — uygulamanın tek çalışma zamanı izni. |
+| `android.hardware.camera.front` (`required=false`) | Ön kamerası olmayan cihazlarda da kurulumun mümkün olması için zorunlu değil olarak tanımlanmıştır; kamera yoksa uygulama Gösteri Modu'na düşer. |
+
+İnternet, konum, kişi rehberi, depolama veya mikrofon izni **istenmemektedir**.
+
+## Data Flow — Veri Akışı
+
+1. **Yakalama:** `CameraManager`, CameraX üzerinden bir `Bitmap` kare üretir.
+2. **Analiz:** `FaceAnalysisEngine`, kareyi ML Kit'e gönderir; sonuç (`FaceAnalysisResult`) `ViewModel`'e döner.
+3. **Kayıt kararı:** Tehdit tespit edilirse `SnoopGuardViewModel`, `SnooperRepository.saveCapturedBitmap()`'i çağırır.
+4. **Depolama:**
+   - Fotoğraf → `context.filesDir/snooper_snapshots/` (uygulamaya özel, sandboxed depo)
+   - Olay meta verisi (zaman, güven skoru, etiket) → Room (`snooper_logs` tablosu)
+   - Sahip profili ve ayarlar → `SharedPreferences`
+5. **Okuma:** `LogsGalleryScreen`, Room'dan `Flow<List<SnooperLog>>` ile canlı olarak beslenir.
+6. **Silme:** Kullanıcı bir kaydı sildiğinde hem fotoğraf dosyası hem Room satırı birlikte temizlenir.
+
+Bu akışın hiçbir adımında veri, cihaz dışına (ağ üzerinden) gönderilmez.
+
+## Security & Privacy — Güvenlik ve Gizlilik
+
+- **Yerel işleme:** Yüz tespiti, benzerlik hesaplaması ve depolama tamamen cihaz üzerinde gerçekleşir.
+- **Kapsam dışı ağ trafiği:** Retrofit/OkHttp bağımlılıkları kodda tanımlı ama kullanılmıyor (yorum satırı); fotoğraf/biyometrik veri için ağ isteği yapılmaz.
+- **Firebase App Check:** Proje, Firebase App Check (reCAPTCHA + debug provider) içerir. Bu, **kullanıcı verisiyle ilgili değildir** — yalnızca uygulamanın değiştirilmemiş/orijinal bir derleme olduğunu doğrulamak için Google altyapısıyla iletişim kurar. Bu nedenle "hiçbir ağ trafiği yok" iddiası tam doğru değildir; doğrusu "kullanıcı verisi/biyometrik veri ağa çıkmaz" şeklindedir.
+- **Kullanıcı onayı zorunlu:** İlk açılışta gösterilen feragatname onaylanmadan (`disclaimerAccepted`) koruma özellikleri etkinleşmez — bu kontrol kod seviyesinde (`toggleGuard()`) uygulanır.
+- **Veri kontrolü:** Kullanıcı; sahip profilini sıfırlayabilir, tekil/toplu kanıt silebilir, tüm yerel veriyi temizleyebilir.
+
+## Testing — Test
+
+| Seviye | Araç | Konum |
+|---|---|---|
+| Birim testi | JUnit + Robolectric | `app/src/test` |
+| Görsel regresyon | Roborazzi (snapshot) | `app/src/test/screenshots` |
+| Enstrümantasyon (UI) | Espresso | `app/src/androidTest` |
+
 ```bash
 ./gradlew :app:testDebugUnitTest
-```
-
-### Entegre Testler (Emülatör/Cihaz)
-```bash
 ./gradlew :app:connectedDebugAndroidTest
 ```
 
-### Fiziksel Cihaz Testi
-- Gerçek kamera işlevselliği için fiziksel cihaz kullan
-- Farklı Android sürümlerinde test et
-- Üreticiye özgü davranışları değerlendir
+Kamera gerektirmeyen test için `SnooperRepository.createSimulatedCapture()` fonksiyonu, gerçek kamera olmadan sahte bir tespit olayı üretir.
 
----
+## Build Status / CI
 
-## 🔒 Güvenlik & Sorumluluk
+Bu depoda şu anda **yapılandırılmış bir GitHub Actions iş akışı bulunmamaktadır.** Aşağıdaki gibi bir CI badge'i, `.github/workflows/` altında gerçek bir workflow eklendiğinde anlamlı olur:
 
-### ⚠️ Sorumlu Kullanım
+```md
+[![Build](https://github.com/EthYusuf/snoopguard/actions/workflows/android.yml/badge.svg)](https://github.com/EthYusuf/snoopguard/actions)
+```
 
-SnoopGuard **kişisel cihaz koruması ve gizlilik eğitimi** için tasarlanmıştır.
+CI kurulana kadar bu bölüm, projenin şu anki gerçek durumunu (otomatik derleme/test kontrolü yok) yansıtmak için bilinçli olarak boş bırakılmıştır.
 
-#### ✅ Uygun Kullanımlar
-- 🔒 Kendi cihazınızı omuz sörfüne karşı koru
-- 🚨 Yetkisiz cihaz erişimini tespit et
-- 🧪 Mobil gizlilik kavramlarını test et
-- 📚 On-cihaz bilgisayar vizyonu öğren
-- 🎓 Gizlilik-koruyucu mimarı göster
+## Release / Versioning
 
-#### ❌ Yasadışı Kullanımlar
-- 🚫 Diğer insanları gizlice izlemek
-- 🚫 İzin olmadan kayıt yapmak
-- 🚫 Sahibi olmadığınız cihazları izlemek
-- 🚫 Yasal güvenlik sistemlerini aşmak
+**Mevcut sürüm: `v0.0.1`** (`versionName = "1.0"` olarak `build.gradle.kts` içinde tanımlı, ancak GitHub Releases etiketi `v0.0.1`).
 
-### 🔍 Güvenlik Açığı Bildir
+Bu sürümde bulunanlar:
+- Canlı Kalkan, Tuzak Ekranı, Gizli Gözcü modları
+- Sahip kaydı ve geometrik yüz karşılaştırması
+- Room tabanlı Forensic Gallery (tekil/toplu silme)
+- Gösteri/simülasyon modu
 
-Güvenlik sorunu keşfettiysen, **halka açık olmayan** şekilde bildir:
+Bu sürümde **bulunmayanlar:**
+- Otomatik test/CI hattı
+- Çok kullanıcılı profil desteği
+- Şifreli yedekleme
+- Bağımlılık enjeksiyonu (Hilt/Koin)
+- Release build'de kod küçültme (`isMinifyEnabled = false`)
 
-📧 GitHub Issues (genel hatalar ve özellik istekleri için)
+## Roadmap
 
----
+**✅ Tamamlanan (kod tabanında doğrulanmıştır):**
+- [x] Canlı Kalkan gerçek zamanlı analiz döngüsü
+- [x] Tuzak Ekranı kilit ekranı simülasyonu
+- [x] Room tabanlı olay kaydı ve Forensic Gallery
+- [x] Duyarlılık ayarı ve titreşim tercihi
+- [x] Gösteri/simülasyon modu
 
-## 📊 Uygulamanın Ana Alanları
-
-| 🎯 Bölüm | 📝 İçerik |
-|:---|:---|
-| **Shield Dashboard** | Ana koruma, durum, istatistikler |
-| **Decoy Trap** | Kilit ekranı, müdahale tetiklemesi |
-| **Forensics** | Olaylar, fotoğraflar, analiz |
-| **Settings** | Duyarlılık, sesler, gizlilik |
-
----
-
-## 🗺️ Yol Haritası
-
-### 🔬 Tespit Geliştirmesi
-- [ ] Gözlem tespitini geliştir
-- [ ] Çevre uyarlamasını iyileştir
-- [ ] Cihaz uyumluluğunu genişlet
-
-### 🔐 Gizlilik & Güvenlik
-- [ ] Çok kullanıcılı güvenilir profiller
-- [ ] Ek gizlilik kontrolleri
+**🔜 Planlanan (henüz kod tabanında yok):**
+- [ ] Çok kullanıcılı güvenilir profil desteği
 - [ ] İsteğe bağlı şifreli yedekleme
+- [ ] Bağımlılık enjeksiyonuna geçiş (Hilt/Koin)
+- [ ] Otomatik CI/CD hattı (GitHub Actions)
+- [ ] Daha sağlam bir yerel yüz-embedding modeli değerlendirmesi
 
-### 🧰 İngineering
-- [ ] Otomatik test kapsamını genişlet
-- [ ] Erişilebilirliği iyileştir
-- [ ] Belgelendirmeyi geliştir
+## Known Limitations — Bilinen Sınırlamalar
+
+- Sahip tanıma, iki geometrik orana dayanır (embedding tabanlı değil); ışık/açı/mesafe değişiminde doğruluk düşebilir.
+- Ayrı bir domain/use-case katmanı yoktur; iş mantığı `Repository`/`ViewModel` içinde toplanmıştır.
+- Bağımlılık enjeksiyonu kullanılmaz; nesneler manuel olarak oluşturulur.
+- Release build'de kod küçültme/obfuscation kapalıdır.
+- Tek bir `ViewModel`, tüm ekranların durumunu yönetir.
+
+## Responsible Use — Sorumlu Kullanım
+
+SnoopGuard, **kişisel cihaz koruması ve gizlilik farkındalığı eğitimi** amacıyla geliştirilmiştir.
+
+**✅ Uygun kullanım:** Kendi cihazınızı omuz sörfüne karşı korumak, yetkisiz erişimi tespit etmek, mobil gizlilik kavramlarını öğrenmek.
+
+**❌ Uygunsuz kullanım:** Başkalarını gizlice izlemek, izinsiz kayıt yapmak, sahibi olunmayan cihazları takip etmek, yasal güvenlik mekanizmalarını aşmak.
+
+## Contributing — Katkıda Bulunma
+
+1. Depoyu fork edin.
+2. Özellik/düzeltme için bir dal oluşturun: `git checkout -b feature/ozellik-adi`
+3. Değişikliklerinizi yapın ve test edin: `./gradlew testDebugUnitTest`
+4. Anlamlı bir commit mesajıyla commit edin: `git commit -m "feat: X özelliğini ekle"`
+5. Dalınızı push edin: `git push origin feature/ozellik-adi`
+6. Bir Pull Request açın ve değişikliğin ne yaptığını, nasıl test edildiğini açıklayın.
+
+Güvenlik açıklarını **genel Issues üzerinden değil**, mümkünse repo sahibiyle özel iletişim yoluyla bildirin. Katkılarda gereksiz veri toplama eklenmemesi ve ağ bağımlılıklarının minimumda tutulması beklenir.
+
+## License — Lisans
+
+Bu proje **MIT Lisansı** altında dağıtılmaktadır. Ayrıntılar için [LICENSE](https://github.com/EthYusuf/snoopguard/blob/main/LICENSE) dosyasına bakın.
+
+## Acknowledgements — Teşekkürler
+
+Bu proje aşağıdaki açık kaynak/üçüncü taraf teknolojiler üzerine inşa edilmiştir:
+
+- [Google ML Kit — Face Detection](https://developers.google.com/ml-kit/vision/face-detection)
+- [CameraX](https://developer.android.com/training/camerax)
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) & Material 3
+- [Room](https://developer.android.com/training/data-storage/room)
+- [Roborazzi](https://github.com/takahirom/roborazzi) (snapshot testing)
+- Proje iskeleti [google-gemini/aistudio-repository-template](https://github.com/google-gemini/aistudio-repository-template) üzerinden oluşturulmuştur.
+
+## Author / Credits
+
+**Geliştirici:** [EthYusuf](https://github.com/EthYusuf)
+**Repo:** [github.com/EthYusuf/snoopguard](https://github.com/EthYusuf/snoopguard)
+
+## Repository Links
+
+- 📦 [Releases](https://github.com/EthYusuf/snoopguard/releases) — indirilebilir APK sürümleri
+- 🐛 [Issues](https://github.com/EthYusuf/snoopguard/issues) — hata bildirimi ve özellik talepleri
+- 🔀 [Pull Requests](https://github.com/EthYusuf/snoopguard/pulls) — açık/kapalı katkılar
+- 📊 [Insights / Pulse](https://github.com/EthYusuf/snoopguard/pulse) — aktivite özeti
+
+## FAQ — Sık Sorulan Sorular
+
+**Fotoğraflar buluta gönderiliyor mu?**
+Hayır. Fotoğraflar uygulamaya özel yerel depoda saklanır. Firebase App Check yalnızca uygulama bütünlüğünü doğrular, kullanıcı fotoğrafı/verisi göndermez.
+
+**İnternet bağlantısı gerekiyor mu?**
+Temel koruma özellikleri (tespit, kayıt, galeri) için gerekmez. İlk kurulumda Firebase App Check doğrulaması için kısa bir bağlantı denenebilir.
+
+**Yüz tanıma nasıl çalışıyor, gerçek "yüz tanıma" mı?**
+Google ML Kit ile yüz tespiti yapılır; sahip *tanıma* ise derin öğrenme tabanlı değil, göz mesafesi ve yüz oranı gibi basit geometrik ölçütlerin karşılaştırılmasıyla yapılır. Bu, ticari biyometrik kimlik doğrulama sistemlerinden farklı ve daha az güvenilir bir yöntemdir.
+
+**Kamerası olmayan bir cihazda çalışır mı?**
+Uygulama kurulur ve açılır (kamera izni `required=false` olarak tanımlı), ancak gerçek tespit için Gösteri/Simülasyon Modu'na düşer.
+
+**Uygulama pili çok mu tüketir?**
+Canlı Kalkan modu sürekli kamera + analiz kullandığından pil tüketimi yüksektir; bu nedenle daha düşük analiz sıklığına sahip Gizli Gözcü modu eklenmiştir.
+
+## Compatibility — Uyumluluk
+
+| Koşul | Davranış |
+|---|---|
+| Android 7.0+ (API 24+) | Desteklenir (minSdk) |
+| Ön kamera mevcut | Tam işlevsellik (Canlı Kalkan, Tuzak Ekranı) |
+| Ön kamera yok / izin verilmedi | Uygulama açılır, otomatik olarak Gösteri/Simülasyon Moduna döner |
+| Emülatör | UI ve veritabanı testleri için uygundur; gerçek yüz tespiti için fiziksel cihaz önerilir |
+
+## Performance Considerations — Performans Notları
+
+- Sürekli kamera akışı + kare başına ML Kit analizi, **CPU ve pil kullanımını artırır.** Bu, `SENSITIVE_STEALTH` modunun temel var oluş nedenidir — daha seyrek analiz ile pil tasarrufu sağlar.
+- `onCameraFrameCaptured()` içindeki `isAnalyzingFrame` bayrağı, bir kare işlenirken yeni karelerin kuyruğa girmesini önleyerek eşzamanlı analiz yükünü sınırlar.
+- Fotoğraf kaydı `Dispatchers.IO` üzerinde yapılır; bu, UI thread'inin dosya/veritabanı işlemlerinden bloklanmasını önler.
+
+## Privacy / Security Disclaimer
+
+**SnoopGuard bir biyometrik kimlik doğrulama sistemi değildir.** Cihaz kilidi, parola veya bankacılık/ödeme uygulamalarındaki yüz kimlik doğrulamasının yerini tutmaz ve bu amaçla kullanılmamalıdır. Kullanılan geometrik karşılaştırma yöntemi, güvenlik kritik kararlar (erişim izni verme/reddetme) için tasarlanmamıştır — yalnızca **bilgilendirici bir gözetim tespiti** sağlar. Tespit doğruluğu ışık, açı, kamera kalitesi ve cihaz donanımına göre değişir. Gizlilik ve gözetleme yasaları yargı bölgesine göre farklılık gösterir; uygulamayı yalnızca yasal çerçevede ve gerekli rızaları alarak kullanın.
 
 ---
 
-## 🤝 Katkıda Bulunun
-
-Katkılar, fikirler ve geri bildirim **çok hoşlanmaktadır**!
-
-### 📝 Önerilen İş Akışı
-
-```
-Fork
-  ↓
-Özellik Dalı Oluştur
-  ↓
-Değişiklikleri Uygula
-  ↓
-Testleri Çalıştır
-  ↓
-Commit Et
-  ↓
-Pull Request Aç
-```
-
-### 📌 Dikkat Edilecekler
-
-- Güvenlik değişikliklerini belgele
-- Gereksiz veri toplama ekleme
-- Ağ bağımlılıkları minimize et
-
----
-
-## 🐛 Sorun Bildir
-
-Bug, özellik isteği veya tartışma için **GitHub Issues** kullan.
-
-### 📋 Bug Raporu Şablonu
-
-```
-Android Sürümü: [ör. Android 14]
-Cihaz Modeli: [ör. Samsung Galaxy S24]
-SnoopGuard Versiyonu: v.0.0.1
-Adımlar: [1. ... 2. ... 3. ...]
-Beklenen Davranış: [ne olması gerekiyordu]
-Gerçek Davranış: [ne oldu]
-Ekler: [screenshot/log - emin olursan]
-```
-
-### ⚠️ Sakla Sakın
-
-Halka açık sorunlarda **asla** sakla:
-- 📸 Özel fotoğraflar
-- 🔐 Biometrik veriler
-- 🔑 Şifreler / Token'lar
-- 👤 Kişisel kimlik bilgileri
-
----
-
-## 📄 Lisans
-
-SnoopGuard **MIT Lisansı** altında dağıtılır.
-
-[Lisans Metni](LICENSE) için repo'ya göz at.
-
----
-
-## ⚠️ Feragatname
-
-SnoopGuard eğitim ve kişisel koruma amaçlı bir güvenlik ve gizlilik projesidir.
-
-### Bu, Yerine Geçmez:
-- ❌ Android's yerel güvenlik mekanizmaları
-- ❌ Güçlü cihaz kimlik doğrulaması
-- ❌ Şifreleme protokolleri
-- ❌ Kuruluş güvenliği
-
-### Doğruluk Değişir:
-- 🌤️ Aydınlatma koşulları
-- 📷 Kamera kalitesi
-- 📱 Cihaz donanımı
-- 👁️ Bakış açısı
-- 🎛️ Yazılım yapılandırması
-
-### 📜 Yasal Uyarı:
-Gizlilik, kayıt ve gözetleme yasaları **yargı yetkisine göre farklıdır**. Uygulamayı yasal şekilde ve gerekli tüm rızaları alarak kullan.
-
----
-
-<div align="center">
-
-## 🛡️ SnoopGuard
-
-### Ekranınız Yalnızca Sizin Gözleriniz İçin
-
-<br>
-
-**On-Cihaz Gizlilik** • **Akıllı Tespit** • **Sorumlu Güvenlik**
-
-<br>
-
-💜 Gizlilik-Bilinci Kullanıcılar İçin Yapılmıştır
-
-<br>
-
-[![GitHub](https://img.shields.io/badge/GitHub-EthYusuf-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EthYusuf/snoopguard)
-
-</div>
+<p align="center"><sub>Bu doküman, projenin GitHub sayfası ve tam kaynak kodu (<code>app/src</code>) incelenerek hazırlanmıştır.</sub></p>
