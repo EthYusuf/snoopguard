@@ -1,390 +1,658 @@
-# 🛡️ SnoopGuard (Gözcü)
-> **On-Device AI Privacy Shield against Shoulder Surfing & Unattended Phone Snooping**
+🛡️ SnoopGuard
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-7F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4.svg?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/jetpack/compose)
-[![Privacy First](https://img.shields.io/badge/Privacy-100%25%20On--Device-00C853.svg?style=for-the-badge)](https://developer.android.com)
-[![Zero Cloud](https://img.shields.io/badge/Cloud%20Upload-ZERO-D50000.svg?style=for-the-badge)](https://developer.android.com)
-[![Direct Download](https://img.shields.io/badge/Download-APK%20(v1.0.0)-FF6D00.svg?style=for-the-badge&logo=android)](https://github.com/EthYusuf/secretOS/releases/download/v.0.0.1/snoopguard.1.apk)
+On-device privacy protection for shoulder surfing and unattended-device snooping.
+
+SnoopGuard is an Android privacy and security application built around a simple idea: sensitive information on your phone should stay under your control.
+
+It combines real-time visual threat detection, a decoy lockscreen, and a local forensic gallery into a privacy-first security experience designed to operate primarily on the device.
 
 <p align="center">
-  <img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard Problem Solution Overview" width="100%" />
+  <img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard privacy protection overview" width="100%">
 </p>
 
----
-
-## 📸 Visual Overview & Application Interface
-
-SnoopGuard presents a modern, intuitive user interface designed with user privacy and security as the paramount concern. The application showcases three distinct operational dashboards that work in harmony to provide comprehensive protection:
+<p align="center">
+  <a href="https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1">
+    <img src="https://img.shields.io/badge/Download-APK-111111?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
+  </a>
+  <a href="https://github.com/EthYusuf/secretOS">
+    <img src="https://img.shields.io/badge/GitHub-Repository-111111?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository">
+  </a>
+</p>
 
 <p align="center">
-  <img src="docs/screenshots/home_shield.jpg" width="31%" alt="Live Shield Radar Dashboard" />
+  <img src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin 2.0">
+  <img src="https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?style=for-the-badge&logo=android&logoColor=white" alt="Jetpack Compose">
+  <img src="https://img.shields.io/badge/Android-API%2026%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android">
+  <img src="https://img.shields.io/badge/Privacy-On--Device-00A86B?style=for-the-badge" alt="On-device privacy">
+</p>
+
+✨ What is SnoopGuard?
+
+Modern phones contain banking information, private conversations, authentication codes, photographs, documents, and other sensitive data.
+
+SnoopGuard focuses on two practical privacy threats:
+
+Shoulder surfing — someone viewing your screen while you are using your phone.
+
+Unattended-device snooping — someone interacting with your phone while you are away.
+
+The application is organized around three core areas:
+
+Module
+
+Purpose
+
+🛡️ Live Shield
+
+Monitors the camera view for potential unauthorized observers
+
+🎭 Decoy Trap
+
+Presents a convincing lockscreen-style interface and records intrusion events
+
+🧾 Forensic Gallery
+
+Organizes captured incidents with timestamps and detection metadata
+
+📸 Application Preview
+
+<p align="center">
+  <img src="docs/screenshots/home_shield.jpg" width="31%" alt="SnoopGuard Live Shield Dashboard">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/decoy_trap.jpg" width="31%" alt="Decoy Trap Lockscreen Intrusion Capture" />
+  <img src="docs/screenshots/decoy_trap.jpg" width="31%" alt="SnoopGuard Decoy Trap">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/forensics_log.jpg" width="31%" alt="Forensics Log Gallery" />
+  <img src="docs/screenshots/forensics_log.jpg" width="31%" alt="SnoopGuard Forensic Gallery">
 </p>
 
 <p align="center">
-  <i>1. <b>Live Shield Dashboard:</b> Provides real-time biometric radar capabilities with integrated threat scanning functionality</i> • 
-  <i>2. <b>Decoy Trap Lockscreen:</b> Implements stealth mechanism with silent front camera intrusion detection and photographic evidence capture</i> • 
-  <i>3. <b>Forensic Gallery:</b> Maintains comprehensive timestamped evidence log of all detected intrusion attempts</i>
+  <sub>
+    <b>Live Shield</b> · <b>Decoy Trap</b> · <b>Forensic Gallery</b>
+  </sub>
 </p>
 
----
+🛡️ Core Features
 
-## 📥 Download & Installation
+Live Shield
 
-SnoopGuard is available as a pre-compiled Android Application Package (APK) ready for immediate installation and evaluation on compatible Android devices:
+A real-time protection dashboard designed to help identify potential unauthorized observers.
 
-* **📦 Release Repository:** Access the official release artifacts at [`releases/tag/v.0.0.1`](https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1)
-* **🚀 Latest Version:** `v1.0.0` - Initial production release with full feature implementation
-* **📱 Minimum System Requirements:** Android 8.0 or later (API level 26 and above)
-* **🔐 Required Permissions:** Camera access (entirely optional and device-resident), device vibration control, local storage access
+Highlights
 
-### Installation Via GitHub Releases
+Real-time threat status
 
-To create and publish a GitHub release containing the SnoopGuard APK for user distribution:
+Owner biometric profile
 
-1. Navigate to your GitHub repository and select the **Releases** section from the main navigation menu.
-2. Click on **Create a new release** or **Draft a new release** option depending on your release management preference.
-3. Configure the release parameters by setting the tag version to `v1.0.0` and assigning the release title as `SnoopGuard v1.0.0 - Initial Production Release`.
-4. In the attachments section labeled **Attach binaries by dropping them here**, add the compiled APK file (`snoopguard.apk` or `release/snoopguard-v1.0.0-release.apk`).
-5. Review the release notes and other metadata, then click **Publish release** to make the APK available for download.
-6. Upon publication, users will be able to access and download the APK directly from your public GitHub Releases page without requiring any additional intermediary services.
+Facial landmark and gaze analysis
 
----
+Configurable detection sensitivity
 
-## 📌 Real-World Security Challenges & Solutions
+Haptic, visual, and optional audio alerts
 
-Modern smartphones have become digital vaults containing our most sensitive personal and financial information. This includes cryptocurrency wallets, banking credentials, biometric authentication factors, intimate personal communications, sensitive family discussions, confidential business documents, and private photographic content. However, in public environments or shared spaces, our devices remain vulnerable to multiple forms of unauthorized access and observation. SnoopGuard addresses each of these critical security vectors with intelligent, privacy-respecting technical solutions.
+Local processing architecture
 
----
+Built-in demonstration mode
 
-## 🔍 Challenge 1: Shoulder Surfing & Visual Hacking in Public Spaces
+Decoy Trap
 
-### The Real-World Scenario
+A lockscreen-style protection mode intended for unattended-device scenarios.
 
-Consider a common situation: You are traveling on public transportation (subway, bus, or aircraft) or working in a semi-public environment such as a coffee shop or shared workspace. During this time, you need to check your cryptocurrency wallet balance for a time-sensitive transaction, verify your mobile banking account for a critical financial decision, or review highly personal correspondence from a family member or romantic partner. Individuals positioned behind you, seated beside you, or standing nearby have a clear visual line of sight to your device's display screen.
+Highlights
 
-### The Security Concern
+Lock interface with dynamically displayed time and date
 
-Research indicates that more than 70% of credential compromises occurring in public environments result directly from visual interception attacks, commonly referred to as shoulder surfing. The visual exposure of sensitive information (passwords, PINs, account balances, private messages, authentication codes) can lead to identity theft, financial fraud, unauthorized account access, or privacy violations. Most users currently resort to awkward physical countermeasures such as cupping their screens with their hands or twisting their devices at uncomfortable angles—methods that are unreliable, socially conspicuous, and provide only partial protection.
+Owner-only exit mechanism
 
-### SnoopGuard's Solution: Live Shield Protection
+Intrusion-triggered camera capture
 
-SnoopGuard implements an intelligent Live Shield protection mechanism powered by advanced computer vision technology operating entirely on your device's processor. The system utilizes your front-facing camera to continuously analyze the field of view directly in front of your screen with millisecond-level responsiveness.
+Local incident storage
 
-**Technical Implementation:**
-- The application establishes a baseline biometric profile of the registered device owner during the initial setup process, capturing key facial landmarks and visual characteristics specific to that individual.
-- During active use, the front camera continuously performs real-time gaze analysis using local machine learning models to verify that the person currently viewing the screen matches the registered owner profile.
-- The moment the system detects an unauthorized individual's face pointing directly toward your screen, or identifies a strange gaze vector coming from an unexpected angle (such as from behind or from the side), it triggers an immediate protective response.
-- The user receives real-time haptic feedback (device vibration patterns), audible alerts, and visual notifications indicating that an unauthorized gaze event has been detected and logged.
-- The Live Shield can be configured with adjustable sensitivity thresholds to balance protection effectiveness with the need to avoid false positives in crowded environments.
+Timestamped evidence
 
----
+Anti-tampering-oriented interaction flow
 
-## 👁️ Challenge 2: Unattended Device Snooping in Office & Domestic Settings
+Forensic Gallery
 
-### The Real-World Scenario
+A local incident history for reviewing detected events.
 
-Picture this common workplace or home scenario: You receive an urgent personal call while your smartphone is lying on your desk, conference table, or study surface. You excuse yourself to take the call privately, leaving your device unattended for just a few moments. During your absence, a curious colleague, office acquaintance, roommate, or family member may approach your device with the intention of browsing notifications, reading private messages, or attempting to unlock it by guessing your passcode.
+Highlights
 
-### The Security Vulnerability
+Intruder snapshots
 
-Unattended device snooping creates profound privacy and security vulnerabilities. An unauthorized person could read confidential messages on professional communication platforms (Slack, Microsoft Teams), access intimate personal communications on messaging applications (WhatsApp, Telegram, Signal), view sensitive business notifications, observe banking alerts, or discover private photographs and media. Furthermore, an opportunistic individual might attempt multiple passcode guesses, potentially gaining complete access to your device and the sensitive data contained within.
+Incident timestamps
 
-### SnoopGuard's Solution: Decoy Trap Stealth Lockscreen
+Detection confidence information
 
-When SnoopGuard's Decoy Trap feature is activated, your device's display transforms into a hyperrealistic fake lockscreen that appears visually identical to the standard Android or iOS lock interface. This decoy includes authentic-looking elements such as the current time (dynamically updated), date and day of the week, battery status indicator, signal strength, and modern lock interface visual indicators.
+Incident classification
 
-**Technical Implementation:**
-- The decoy screen is pixel-perfect in its replication of genuine system lockscreen aesthetics, making it imperceptible to unauthorized users.
-- However, the moment an unauthorized individual touches the display screen, the front-facing camera activates silently and captures a high-resolution photograph of the intruder.
-- This photographic evidence is immediately encrypted and stored securely in the device's local database, associated with precise timestamp metadata and threat analysis data.
-- To exit the decoy trap and return to genuine functionality, only the registered device owner can provide the correct exit passcode—preventing the snooper from accessing your actual device while confirming their identity through the unauthorized touch event.
-- Users can later review all captured intruder photographs in the application's forensic gallery, complete with timestamp information, confidence metrics, and detailed incident analysis.
+Individual incident deletion
 
----
+Complete evidence purge
 
-## ☁️ Challenge 3: Biometric Privacy & Cloud-Based Surveillance Risks
+Optional evidence export workflow
 
-### The Privacy Concern
+🔐 Privacy by Design
 
-The majority of existing consumer security and surveillance applications operate according to a problematic business model: they capture sensitive biometric data (facial images, fingerprints, iris scans) and behavioral metadata, then transmit this information to remote cloud servers operated by third-party technology companies. This practice creates multiple severe privacy and security risks:
+Privacy is a core architectural principle of SnoopGuard.
 
-- **Data Harvesting & Monetization:** Cloud-based biometric companies often monetize user data by selling access to third-party data brokers, marketing firms, or research organizations.
-- **Government & Legal Requests:** Law enforcement agencies can compel cloud service providers to surrender biometric data through legal channels, potentially exposing users to unwanted surveillance.
-- **Data Breach Vulnerability:** Centralized cloud repositories represent high-value targets for cybercriminals and foreign intelligence agencies seeking to compromise millions of biometric records simultaneously.
-- **Accountability Gaps:** Users often have limited transparency into where their data is stored, who accesses it, what retention policies apply, and whether adequate security protections are implemented.
+The project is designed around local-first processing so that sensitive biometric and incident information does not need to be uploaded to a remote service.
 
-### SnoopGuard's Solution: 100% On-Device Zero-Cloud Architecture
+Local Processing
 
-SnoopGuard is engineered from its foundation with an uncompromising privacy-first architecture: every computation, every facial landmark analysis, every image processing operation, and every storage operation occurs exclusively within the confines of your personal device's hardware. Zero data transmission occurs to external servers, cloud providers, telemetry systems, or third-party analytics platforms.
+SnoopGuard is designed to keep security-related processing on the device, including:
 
-**Technical Advantages:**
-- **Complete User Data Sovereignty:** Your biometric data, captured photographs, and incident logs remain your exclusive property, stored only in encrypted form on your device's local storage.
-- **Hardware-Resident Processing:** All facial recognition, gaze vector analysis, and threat assessment computations are performed using your device's built-in neural processing capabilities (through technologies like TensorFlow Lite or NNAPI), ensuring optimal performance without network dependencies.
-- **No Network Dependency:** SnoopGuard functions identically in offline environments (airplane mode, remote locations, areas with no network coverage) compared to connected environments, as it maintains complete operational independence.
-- **Encrypted Local Storage:** All photographic evidence, biometric profiles, and forensic logs are encrypted using Android's built-in encrypted storage mechanisms (Room Database with encryption extensions), accessible only through the application.
-- **Immediate Data Purging:** Users can permanently delete all stored biometric profiles, photographs, and forensic evidence at any time with a single action, ensuring complete data elimination without requiring any external service interactions.
+Facial analysis
 
----
+Gaze-related processing
 
-## ⚖️ Challenge 4: Legal Compliance, User Consent & Ethical Framework
+Threat assessment
 
-### The Ethical Foundation
+Image processing
 
-SnoopGuard is designed not only as a powerful security tool but as an ethically responsible application that respects user autonomy, personal privacy rights, and applicable privacy legislation including GDPR (General Data Protection Regulation), CCPA (California Consumer Privacy Act), and international privacy standards.
+Incident storage
 
-### Consent & Transparency Protocol
+No Cloud Dependency
 
-The application implements a mandatory legal and ethical framework:
+The intended architecture does not require a cloud backend for the core protection workflow.
 
-- **Explicit Permission Requirements:** Before any sensitive operations such as camera access, biometric profile registration, or photographic capture can occur, users must affirmatively grant explicit informed consent through the application's onboarding process.
-- **Comprehensive Disclaimer Presentation:** The first application launch presents a detailed legal disclaimer explaining what data the application collects (only on-device biometric profiles and incident photographs), what it does with this data (stores locally and encrypts), who can access this data (only the device owner through the app), and what privacy protections are in place.
-- **Optional Camera Access:** Camera access is presented as completely optional functionality. Users can evaluate the Decoy Trap feature and test all other protective mechanisms through a zero-camera demonstration mode that simulates threat scenarios without requiring actual camera hardware.
-- **Revocable Consent & Data Deletion:** Users maintain complete control over their data at all times. Consent can be revoked at any moment, and users can access a **Settings > Privacy > Clear All Data** option that performs a complete cryptographic erasure of all stored biometric profiles, photograph galleries, and forensic logs.
-- **Transparency in Processing:** The application clearly communicates what is happening during each operation—when the camera is active, when gaze analysis is occurring, when photographs are being captured, and where locally stored data is being saved.
+This means the application can be evaluated without relying on an external security server or analytics platform.
 
----
+User Control
 
-## 📱 Application Architecture & Comprehensive User Experience
+The application includes privacy-oriented controls for:
 
-The SnoopGuard application architecture is organized into three primary functional domains, each accessible through intuitive navigation interfaces:
+Camera permission management
 
-```
-+-----------------------------------------------------------------------------------+
-|                                 SNOOPGUARD                                        |
-|                                                                                   |
-|  [🛡️ Active Shield]               [📸 Incident Forensics]          [⚙️ Settings]  |
-+-----------------------------------------------------------------------------------+
-|                                                                                   |
-|  1. SHIELD DASHBOARD (Primary Home Screen)                                        |
-|  +-----------------------------------------------------------------------------+  |
-|  |  • Master Defense Toggle Switch (Active Protection / Standby Mode)          |  |
-|  |  • Real-Time Threat Status Indicator (Safe Green / Breach Red / Warning)   |  |
-|  |  • Biometric Profile Status: Registered Owner Baseline vs Unknown Intruders |  |
-|  |  • Interactive Problem Solver Guide: Real-world scenarios with visuals     |  |
-|  |  • Dual Protection Activation: Live Look Guard Mode & Decoy Trap Mode      |  |
-|  |  • Built-in Incident Simulator: Hardware-free testing without camera       |  |
-|  |  • Protection Statistics: Total incidents detected, incidents this month   |  |
-|  |  • Settings Shortcut: One-tap access to configuration and preferences      |  |
-|  +-----------------------------------------------------------------------------+  |
-|                                                                                   |
-|  2. DECOY TRAP MODULE (Stealth Lockscreen Protection)                             |
-|  +-----------------------------------------------------------------------------+  |
-|  |  • Ultra-Realistic Lock Interface Display (Current time, date, day name)    |  |
-|  |  • Hidden Activation Trigger: Unauthorized touch initiates silent capture   |  |
-|  |  • Front Camera Silent Snapshot: High-resolution intruder photograph        |  |
-|  |  • Secure Passcode Authentication: Owner-only exit mechanism               |  |
-|  |  • Automatic Photo Encryption: Immediate secure storage of evidence        |  |
-|  |  • Anti-Tampering Protection: Prevents unauthorized exit attempts          |  |
-|  +-----------------------------------------------------------------------------+  |
-|                                                                                   |
-|  3. FORENSICS LOG GALLERY (Incident Evidence Repository)                          |
-|  +-----------------------------------------------------------------------------+  |
-|  |  • High-Resolution Intruder Snapshots: Clear photographs with metadata     |  |
-|  |  • Gaze Vector Analysis Data: Direction and confidence metrics             |  |
-|  |  • Detailed Incident Metadata: Precise timestamps, incident classification |  |
-|  |  • Threat Confidence Scores: Numerical assessment (e.g., 94% confidence)  |  |
-|  |  • Selective Image Deletion: Individual removal of specific incidents       |  |
-|  |  • Total Secure Data Purge: Complete forensic evidence elimination option  |  |
-|  |  • Export Capabilities: Optional secure sharing for legal purposes          |  |
-|  +-----------------------------------------------------------------------------+  |
-|                                                                                   |
-|  4. SETTINGS & CONFIGURATION MODULE (Advanced Customization)                      |
-|  +-----------------------------------------------------------------------------+  |
-|  |  • Sensitivity Threshold Adjustment: Fine-tune detection parameters        |  |
-|  |  • Alert Preference Configuration: Audio, vibration, and notification opts  |  |
-|  |  • Biometric Profile Management: Register, update, or delete owner profile  |  |
-|  |  • Camera Permissions: Enable/disable camera functionality                  |  |
-|  |  • Privacy & Data Control: View stored data, manage encryption keys         |  |
-|  |  • Emergency Reset: Complete application factory reset                      |  |
-|  +-----------------------------------------------------------------------------+  |
-+-----------------------------------------------------------------------------------+
-```
+Biometric profile management
 
----
+Incident review
 
-## ⚡ Core Features & Technical Capabilities
+Individual evidence deletion
 
-| **Capability** | **Description & Engineering Benefits** |
-| :--- | :--- |
-| **Real-Time Live Shield Monitoring** | Continuously monitors the front-facing camera field of view to verify whether the active observer matches the previously registered owner's biometric profile. Utilizes local neural networks for millisecond-latency gaze verification without any cloud connectivity. |
-| **Sophisticated Gaze Vector Analysis** | Implements advanced facial landmark detection to identify peripheral observation attempts from behind, sideways, or at angles. Provides immediate haptic feedback (device vibration) and visual/auditory alerts upon detection of unauthorized gaze angles. |
-| **Decoy Trap Stealth Lockscreen** | Deploys a pixel-perfect replica of the standard Android lockscreen interface that appears to be the genuine device lock. Upon any unauthorized touch interaction, silently activates the front camera to capture photographic evidence of the intrusion attempt. |
-| **Owner Biometric Registration System** | Implements a secure local facial recognition calibration process during initial application setup. Establishes baseline facial coordinates, measurements, and distinguishing features specific to the registered owner to minimize false alarm occurrences. |
-| **Interactive Problem Solver & Educational Scenarios** | Provides comprehensive built-in educational modal interfaces that break down real-world privacy threats (public transit risks, office snooping scenarios, cloud surveillance concerns) with custom illustrations and practical mitigation strategies. |
-| **Zero-Cloud Architecture Guarantee** | Enforces a strict architectural principle ensuring 100% offline-capable operation. All data processing, storage, and computation occurs exclusively on-device. Supports optional encrypted Room SQLite database for local evidence persistence without any cloud synchronization. |
-| **Configurable Protection Sensitivity** | Provides an adjustable threat detection sensitivity slider (range 0.1 to 1.0) to allow users to balance protection effectiveness with false alarm mitigation in different environmental contexts. Includes customizable haptic vibration patterns, alert audio selections, and notification preferences. |
-| **Forensic Evidence Gallery** | Maintains a secure, timestamp-indexed repository of all captured intrusion photographs with associated metadata including detection confidence metrics, incident classification, and environmental context information. |
-| **Demonstration Mode (Zero-Camera Testing)** | Enables comprehensive feature evaluation without requiring actual camera hardware or capturing real photographs. Allows users to test all application functionality and understand protection mechanisms before deploying in production scenarios. |
+Complete local data deletion
 
----
+Demonstration mode without camera access
 
-## 🛠️ Technology Stack & Engineering Foundation
+Important: Privacy and security claims should always be validated against the actual source code, Android permissions, dependencies, release configuration, and device behavior.
 
-The SnoopGuard application is engineered using modern, battle-tested Android development technologies selected for their performance characteristics, long-term maintainability, and alignment with privacy-respecting design principles:
+⚖️ Responsible Use
 
-* **Primary Development Language:** Kotlin 2.0 with type-safe coroutine implementations and reactive Flow-based architecture for responsive, non-blocking computational patterns
-* **User Interface Framework:** Jetpack Compose with Material Design 3 (M3) specification compliance. Custom theme implementation featuring Cyberpunk Dark color palette with Emerald Security accent colors for visual cohesion and accessibility compliance
-* **Application Architecture Pattern:** MVVM (Model-View-ViewModel) pattern combined with Clean Architecture principles. Implements unidirectional data flow using StateFlow observables to maintain consistent state management and predictable UI reactivity
-* **Local Data Persistence:** Android Jetpack Room ORM library with KSP (Kotlin Symbol Processing) for compile-time annotation processing. Provides type-safe SQL database abstraction with optional encryption support for sensitive data storage
-* **Camera & Vision Integration:** Android CameraX library for camera hardware abstraction and standardized camera lifecycle management. Accompanist library for dynamic runtime permission handling with user-friendly permission request flows
-* **Machine Learning & Vision Processing:** TensorFlow Lite integration for on-device neural network inference. NNAPI (Neural Network API) for hardware-accelerated ML computation on compatible devices
-* **Visual Design Assets:** Custom high-fidelity illustrated graphics (`img_privacy_hero`, `img_shoulder_surfing`, `snoop_guard_icon`) created specifically for the application's visual identity and educational scenarios
+SnoopGuard is intended for personal device protection and privacy awareness.
 
----
+Appropriate use includes:
 
-## 🏗️ Building from Source & Development Environment Setup
+Protecting your own device from shoulder surfing
 
-### System Prerequisites & Requirements
+Detecting potential unauthorized interaction with your own device
 
-Before proceeding with building SnoopGuard from source code, ensure your development environment meets the following specifications:
+Testing mobile privacy and security concepts
 
-* **Android Development Environment:** Android Studio Iguana, Jellyfish, Ladybug, or a compatible newer version with full Gradle integration
-* **Build System:** Gradle 8.x or newer version for dependency resolution and multi-module project management
-* **Java Development Kit:** JDK 17 (LTS release) with compatibility for modern Kotlin features and language specifications
-* **Target Android API Levels:**
-  - **Minimum SDK:** API level 26 (Android 8.0 Oreo) - Ensures broad device compatibility while maintaining modern feature access
-  - **Target SDK:** API level 34 (Android 14) - Leverages latest Android platform capabilities while maintaining backward compatibility
+Learning about on-device computer vision
 
-### Step-by-Step Build Instructions
+Demonstrating privacy-preserving security architecture
 
-Follow these comprehensive steps to successfully build the SnoopGuard application for development and testing:
+SnoopGuard should not be used for:
 
-```bash
-# Step 1: Clone the GitHub repository to your local development machine
-git clone https://github.com/your-username/snoopguard-android.git
+Covert surveillance of other people
 
-# Step 2: Navigate into the project root directory
-cd snoopguard-android
+Photographing people without appropriate consent where required by law
 
-# Step 3: Execute Gradle tasks to download dependencies and verify environment
-# This step validates your build environment configuration
+Monitoring devices that you do not own or have permission to manage
+
+Circumventing legitimate security, parental-control, or enterprise-management systems
+
+Any activity that violates applicable privacy or surveillance laws
+
+Camera-based features should be used responsibly and in accordance with local law.
+
+🧠 How It Works
+
+1. Owner Setup
+
+The user can establish an owner profile during application setup.
+
+2. Active Protection
+
+When protection is enabled, the application can analyze the camera view using local processing to identify potential observation events.
+
+3. Threat Detection
+
+A suspected event can trigger configured feedback such as:
+
+Visual notification
+
+Device vibration
+
+Optional audio alert
+
+Incident logging
+
+4. Incident Recording
+
+When an enabled protection mechanism records an incident, the relevant information is stored locally for later review.
+
+5. Forensic Review
+
+The Forensic Gallery provides a chronological view of recorded events and their available metadata.
+
+🏗️ Application Architecture
+
+SnoopGuard follows a modern Android architecture built around separation of concerns and reactive UI state.
+
+┌──────────────────────────────────────────────────────────┐
+│                       SNOOPGUARD                         │
+├──────────────────────────────────────────────────────────┤
+│                                                          │
+│  🛡️ LIVE SHIELD     🎭 DECOY TRAP     🧾 FORENSICS      │
+│                                                          │
+├──────────────────────────────────────────────────────────┤
+│                    PRESENTATION                          │
+│               Jetpack Compose + M3                       │
+├──────────────────────────────────────────────────────────┤
+│                     VIEW MODELS                          │
+│              StateFlow / UI State                         │
+├──────────────────────────────────────────────────────────┤
+│                    DOMAIN LAYER                          │
+│             Security & Detection Logic                    │
+├──────────────────────────────────────────────────────────┤
+│                      DATA LAYER                          │
+│             Room / Local Storage / Models                 │
+├──────────────────────────────────────────────────────────┤
+│                 DEVICE SERVICES                           │
+│        CameraX · Android APIs · Local ML                 │
+└──────────────────────────────────────────────────────────┘
+
+Main Application Areas
+
+Shield Dashboard
+
+Master protection toggle
+
+Threat status
+
+Owner profile status
+
+Detection controls
+
+Problem-solver / educational scenarios
+
+Demonstration mode
+
+Protection statistics
+
+Decoy Trap
+
+Lock-style interface
+
+Intrusion trigger
+
+Camera capture workflow
+
+Local evidence handling
+
+Owner exit authentication
+
+Forensics
+
+Incident timeline
+
+Captured images
+
+Detection metadata
+
+Confidence information
+
+Deletion and purge controls
+
+Settings
+
+Sensitivity configuration
+
+Alert preferences
+
+Biometric profile management
+
+Camera permission controls
+
+Privacy controls
+
+Application reset
+
+⚡ Technical Capabilities
+
+Capability
+
+Description
+
+Live Shield
+
+Real-time camera-based observation monitoring
+
+Gaze Analysis
+
+Facial landmark and gaze-related threat analysis
+
+Decoy Trap
+
+Lock-style interface for unattended-device protection
+
+Biometric Profile
+
+Local owner-profile calibration
+
+Forensic Gallery
+
+Timestamped incident history
+
+Sensitivity Control
+
+Adjustable protection sensitivity
+
+Demo Mode
+
+Hardware-free feature demonstration
+
+Local Storage
+
+Device-resident incident persistence
+
+Privacy Controls
+
+Profile, permission, and data management
+
+🧰 Technology Stack
+
+Technology
+
+Role
+
+Kotlin 2.0
+
+Primary development language
+
+Jetpack Compose
+
+Modern declarative UI
+
+Material 3
+
+UI design system
+
+MVVM
+
+Presentation architecture
+
+Clean Architecture
+
+Separation of application responsibilities
+
+StateFlow
+
+Reactive state management
+
+Kotlin Coroutines
+
+Asynchronous operations
+
+Room
+
+Local database abstraction
+
+KSP
+
+Compile-time code generation
+
+CameraX
+
+Camera lifecycle and hardware abstraction
+
+TensorFlow Lite
+
+On-device ML inference
+
+NNAPI
+
+Hardware-accelerated ML where supported
+
+📱 Requirements
+
+Minimum
+
+Android: 8.0 / API 26+
+
+JDK: 17
+
+Gradle: 8.x+
+
+Compatible front-facing camera for camera-dependent features
+
+Recommended Development Environment
+
+Android Studio Iguana, Jellyfish, Ladybug, or newer
+
+Physical Android device for camera and hardware testing
+
+Android Emulator for UI and non-camera testing
+
+Some device-specific behavior may vary depending on Android version, camera hardware, manufacturer restrictions, and available hardware acceleration.
+
+📥 Download
+
+A pre-built APK is available from the project's GitHub release page.
+
+Current release referenced by this project: v.0.0.1
+
+👉 Download SnoopGuard APK
+
+👉 View GitHub Release
+
+Installation
+
+Download the APK from the release page.
+
+Transfer it to your Android device if necessary.
+
+Install the APK.
+
+Review the requested permissions.
+
+Enable only the features you want to use.
+
+Use Demonstration Mode first if you want to test the interface without camera access.
+
+Android may require you to allow installation from the relevant source before installing an APK obtained outside Google Play.
+
+🔨 Build From Source
+
+1. Clone the repository
+
+git clone https://github.com/EthYusuf/secretOS.git
+cd secretOS
+
+2. Clean the project
+
 ./gradlew clean
 
-# Step 4: Assemble a debug-signed APK for testing on development devices
-# The resulting APK will include debugging symbols and unoptimized code
+3. Build a debug APK
+
 ./gradlew assembleDebug
 
-# Step 5: Execute comprehensive unit tests using Robolectric framework
-# Robolectric provides simulated Android runtime for rapid unit test execution
+4. Run unit tests
+
 ./gradlew :app:testDebugUnitTest
 
-# Step 6: Execute instrumented integration tests on Android device or emulator
-# These tests validate actual Android framework interactions
+5. Run instrumented tests
+
 ./gradlew :app:connectedDebugAndroidTest
 
-# Step 7: Optional - Build production release APK with full optimizations
-# Requires valid keystore and signing credentials
+6. Build a release APK
+
 ./gradlew assembleRelease
-```
 
-### Gradle Build System Customization
+The release build requires a properly configured Android signing setup.
 
-The Gradle build system configuration files (`build.gradle.kts`) contain customizable parameters for your specific development environment:
+🧪 Testing Strategy
 
-- **SDK Versions:** Modify `compileSdk`, `minSdk`, and `targetSdk` values if you need different API level support
-- **Kotlin Version:** Update Kotlin version specification in the project-level Gradle configuration
-- **Dependency Versions:** Adjust library versions in the `dependencies` block for specific compatibility requirements
-- **Build Variants:** Configure separate debug and release build variants with different signing configurations
+SnoopGuard can be tested at multiple levels:
 
----
+UI & Functional Testing
 
-## 🔒 Privacy Architecture, Ethical Framework & Legal Compliance
+Validate:
 
-SnoopGuard is engineered with privacy protection as the foundational architectural principle rather than as an afterthought feature. The following comprehensive privacy framework governs all aspects of the application:
+Navigation
 
-### 1. Intended Use & Authorized Scenarios
+Protection state changes
 
-SnoopGuard is designed, developed, and distributed exclusively for legitimate personal device protection scenarios. Authorized use cases include:
+Settings
 
-- **Personal Shoulder Surfing Protection:** Defending against unauthorized visual interception of sensitive information in public transportation, shared workspaces, and semi-public environments
-- **Unattended Device Security:** Protecting devices left on desks, conference tables, or shared surfaces from curious colleagues, acquaintances, or household members
-- **Anti-Snooping Deterrence:** Discouraging opportunistic intrusion attempts through visible protective mechanisms and incident logging capabilities
-- **Privacy Awareness Education:** Using the application's educational features and scenarios to increase personal awareness of common privacy threats
+Permission flows
 
-Unauthorized use cases explicitly prohibited by the application's intended purpose include:
+Incident display
 
-- **Covert Surveillance of Others:** Using SnoopGuard to secretly photograph or monitor individuals without their explicit knowledge and consent
-- **Privacy Invasion:** Attempting to capture images of individuals in private spaces or intimate situations
-- **Workplace Violation:** Installing on devices belonging to others without explicit authorization
-- **Circumventing Legitimate Security Controls:** Using the application to bypass corporate mobile device management systems or parental controls
+Data deletion
 
-### 2. Local Processing Guarantee & Data Residency
+Demonstration mode
 
-Every computational process executed by SnoopGuard—including facial recognition, gaze vector analysis, biometric comparison, threat assessment, image processing, and data storage—occurs exclusively within the secured confines of your individual device's hardware. This architectural guarantee includes:
+Unit Testing
 
-- **No External Transmission:** Biometric data, captured photographs, forensic logs, and threat assessments are never transmitted to external servers, cloud platforms, analytics services, or third-party organizations
-- **No Telemetry Collection:** The application does not collect, aggregate, or transmit usage metrics, crash reports, feature usage statistics, or behavioral analytics to external services
-- **No Remote Monitoring:** No external party, including the application developers, can access, view, or analyze any data stored on your device through the application
-- **Hardware Isolation:** All machine learning computations utilize your device's built-in ML accelerators (GPU, NPU, specialized ML coprocessors) to ensure data never leaves the local hardware boundary
+./gradlew :app:testDebugUnitTest
 
-### 3. User Consent, Transparency & Control Framework
+Instrumented Testing
 
-The application implements comprehensive consent and transparency mechanisms:
+./gradlew :app:connectedDebugAndroidTest
 
-- **Mandatory Initial Disclaimer:** First-time application launch presents a comprehensive legal disclaimer requiring explicit user acknowledgment before proceeding. This disclaimer clearly explains what data is collected (biometric profiles and incident photographs), where it is stored (exclusively on-device), how long it is retained (user-configurable), and what privacy protections are implemented
-- **Granular Permission Management:** Camera access and all sensitive permissions are requested individually with clear explanation of why each permission is necessary. Users can grant or deny each permission independently
-- **Optional Camera Functionality:** Comprehensive application testing and feature evaluation is possible without granting camera permissions. The demonstration mode simulates all detection and alert scenarios using synthetic data
-- **User Data Access Rights:** Users can access a comprehensive summary of all stored data including biometric profiles, captured photographs, forensic logs, timestamps, and associated metadata through the Settings > Privacy > View My Data section
-- **Data Deletion & Purging:** Users maintain complete control over all stored data at all times. A single-action "Clear All Data" option in Settings > Privacy > Delete Everything performs immediate, irreversible cryptographic erasure of all biometric profiles, photograph galleries, forensic logs, and application configuration data
-- **Real-Time Transparency:** When camera operations are active, when gaze analysis is occurring, or when photographic capture happens, the application provides real-time visual, auditory, and haptic notifications to inform the user
+Physical Device Testing
 
-### 4. Security Mechanisms & Data Protection
+Camera-dependent functionality should be tested on real Android hardware because camera APIs, performance, background restrictions, and manufacturer behavior can differ significantly between devices.
 
-All sensitive data stored by SnoopGuard is protected through multiple security layers:
+🔒 Security Considerations
 
-- **Encrypted Local Storage:** All photographs, biometric profiles, and forensic logs are stored in an encrypted SQLite database using Android's built-in encrypted storage mechanisms. Encryption keys are generated using cryptographically secure random processes and protected by the Android Keystore system
-- **Hardware-Backed Encryption:** On compatible devices with secure hardware components (TEE - Trusted Execution Environment), encryption keys are generated and maintained within the secure hardware boundary, making them inaccessible even to the operating system
-- **Application-Level Sandboxing:** All application data is stored within the app's private storage directory, accessible only by the SnoopGuard application through Android's application sandbox security model
-- **No Backup Leakage:** The application is configured to exclude all sensitive data from Android system backups to prevent accidental exposure through backup services
+SnoopGuard handles potentially sensitive information. Security should therefore be treated as an ongoing engineering process.
 
-### 5. Compliance with Privacy Regulations
+Areas that should be reviewed before production distribution include:
 
-SnoopGuard's architecture and operational model are designed to comply with international privacy regulations:
+Android permission declarations
 
-- **GDPR Compliance (European Union):** The application collects minimal personal data, stores it exclusively locally, provides explicit user consent mechanisms, allows data deletion on demand, and maintains comprehensive audit trails of all data processing activities
-- **CCPA Compliance (California):** Users maintain complete awareness of what personal information is collected, explicit control over data retention and deletion, and ability to opt-out of data collection (through feature disablement)
-- **Jurisdiction-Specific Privacy Laws:** The application respects local privacy regulations across different jurisdictions where it is distributed and used
+Camera lifecycle behavior
 
----
+Local database encryption
 
-## 🚀 Future Development Roadmap & Enhancement Plans
+Android Keystore usage
 
-SnoopGuard is under continuous active development with planned enhancements including:
+Backup configuration
 
-- **Advanced Multi-Face Recognition:** Extended support for registering and recognizing multiple trusted individuals (family members, spouses) alongside the primary owner
-- **Environmental Adaptation:** Machine learning model improvements to distinguish between legitimate nearby observers and threat actors through behavioral analysis
-- **Cross-Device Synchronization:** Secure encrypted synchronization of protection settings and configuration between multiple user devices (optional, fully encrypted, user-controlled)
-- **Cloud Backup (Optional):** Opt-in capability to back up critical forensic evidence to encrypted cloud storage for devices lost or stolen
-- **Integration with Emergency Services:** Secure capability to share forensic evidence with law enforcement or security professionals when investigating serious incidents
-- **Accessibility Enhancements:** Expanded support for voice-based controls, screen reader compatibility, and additional accessibility features for users with disabilities
+APK signing
 
----
+Dependency vulnerabilities
 
-## 📧 Support, Feedback & Community Engagement
+Debug logging
 
-We welcome user feedback, bug reports, feature requests, and security vulnerability disclosures through multiple channels:
+Export functionality
 
-- **GitHub Issues:** Submit detailed bug reports, feature requests, or questions through the project's GitHub Issues system at https://github.com/EthYusuf/snoopguard/issues
-- **Security Vulnerability Reports:** For security-sensitive issues, please follow responsible disclosure practices by contacting the development team privately rather than disclosing vulnerabilities publicly
-- **Community Discussions:** Participate in project discussions, share usage experiences, and connect with other SnoopGuard users through the GitHub Discussions forum
+Screenshot / screen-recording behavior
 
----
+Data deletion guarantees
 
-## 📄 License & Legal Information
+Security Disclosure
 
-SnoopGuard is distributed under the MIT License, which permits free use, modification, and distribution under permissive terms. Please review the LICENSE file included in the repository for complete legal terms and conditions.
+If you discover a security vulnerability, please avoid publicly posting sensitive exploit details before the issue can be responsibly assessed.
 
----
+For general bugs and feature requests, use GitHub Issues.
+
+🗺️ Roadmap
+
+Planned areas of development include:
+
+Multi-user trusted profiles
+
+Improved environmental adaptation
+
+More robust observation detection
+
+Accessibility improvements
+
+Expanded device compatibility
+
+Additional privacy controls
+
+Improved forensic metadata
+
+More comprehensive automated testing
+
+Optional encrypted synchronization
+
+Optional encrypted backup workflows
+
+Roadmap items are subject to change as the project evolves.
+
+🤝 Contributing
+
+Contributions, ideas, bug reports, and security feedback are welcome.
+
+Suggested workflow
+
+Fork the repository.
+
+Create a feature branch.
+
+Make your changes.
+
+Test the application.
+
+Commit your changes with a clear message.
+
+Open a pull request.
+
+Please keep security-sensitive changes documented and avoid introducing unnecessary data collection or network dependencies.
+
+🐛 Issues & Feedback
+
+For bugs, feature requests, and general project discussions:
+
+👉 Open a GitHub Issue
+
+When reporting a bug, include:
+
+Android version
+
+Device model
+
+SnoopGuard version
+
+Steps to reproduce
+
+Expected behavior
+
+Actual behavior
+
+Relevant logs or screenshots, if safe to share
+
+Do not include private photographs, biometric information, passwords, tokens, or other sensitive data in public issues.
+
+📄 License
+
+SnoopGuard is distributed under the MIT License.
+
+See the LICENSE file for the complete license text.
+
+⚠️ Disclaimer
+
+SnoopGuard is a security and privacy project intended for educational and personal protection purposes.
+
+The application should be treated as an additional privacy layer, not as a replacement for Android's native security mechanisms, strong device authentication, encryption, or other established security controls.
+
+Detection accuracy can vary based on lighting, camera quality, device hardware, viewing angle, environmental conditions, and software configuration.
+
+Privacy, recording, biometric-data, and surveillance laws vary by jurisdiction. Users are responsible for using the application lawfully and obtaining any consent required by applicable law.
 
 <p align="center">
-  <b>SnoopGuard: Your Screen Is For Your Eyes Only</b>
-  <br>
-  <i>Privacy Protection • Ethical Design • User Empowerment</i>
-  <br><br>
-  <strong>Built with ❤️ for privacy-conscious users worldwide</strong>
+  <strong>SnoopGuard</strong><br>
+  <em>Your screen is for your eyes only.</em>
+</p>
+
+<p align="center">
+  Privacy Protection · On-Device Processing · Responsible Security
+</p>
+
+<p align="center">
+  Built with ❤️ for privacy-conscious users.
 </p>
