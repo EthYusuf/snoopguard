@@ -1,557 +1,390 @@
+<div align="center">
+
 🛡️ SnoopGuard
+On-device privacy protection against shoulder surfing and unattended-device snooping.
 
-On-device privacy protection for shoulder surfing and unattended-device snooping.
+<p> <strong>Protect your screen. Detect suspicious activity. Keep evidence local.</strong> </p>
 
-SnoopGuard is an Android privacy and security application built around a simple idea: sensitive information on your phone should stay under your control.
+<p> SnoopGuard is an Android privacy and security application designed to detect potential visual observation and unauthorized interaction with a device — with a strong focus on local, privacy-first processing. </p>
 
-It combines real-time visual threat detection, a decoy lockscreen, and a local forensic gallery into a privacy-first security experience designed to operate primarily on the device.
+<br>
 
-<p align="center">
-  <img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard privacy protection overview" width="100%">
-</p>
+<a href="https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1"> <img src="https://img.shields.io/badge/Download-APK-111111?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"> </a> &nbsp; <a href="https://github.com/EthYusuf/secretOS"> <img src="https://img.shields.io/badge/View-Repository-24292f?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository"> </a>
 
-<p align="center">
-  <a href="https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1">
-    <img src="https://img.shields.io/badge/Download-APK-111111?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
-  </a>
-  <a href="https://github.com/EthYusuf/secretOS">
-    <img src="https://img.shields.io/badge/GitHub-Repository-111111?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository">
-  </a>
-</p>
+<br><br>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin 2.0">
-  <img src="https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?style=for-the-badge&logo=android&logoColor=white" alt="Jetpack Compose">
-  <img src="https://img.shields.io/badge/Android-API%2026%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android">
-  <img src="https://img.shields.io/badge/Privacy-On--Device-00A86B?style=for-the-badge" alt="On-device privacy">
-</p>
+<img src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin"> <img src="https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?style=flat-square&logo=android&logoColor=white" alt="Jetpack Compose"> <img src="https://img.shields.io/badge/Android-API%2026%2B-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android"> <img src="https://img.shields.io/badge/TensorFlow%20Lite-On--Device%20ML-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" alt="TensorFlow Lite"> <img src="https://img.shields.io/badge/Privacy-Local--First-111111?style=flat-square" alt="Privacy">
 
-✨ What is SnoopGuard?
+<br><br>
 
-Modern phones contain banking information, private conversations, authentication codes, photographs, documents, and other sensitive data.
+<img src="docs/screenshots/problem_guide_banner.jpg" alt="SnoopGuard Privacy Protection Overview" width="100%">
+
+</div>
+
+📖 Overview
+
+Modern smartphones contain highly sensitive information — private conversations, authentication codes, photographs, documents, financial applications and personal accounts.
 
 SnoopGuard focuses on two practical privacy threats:
 
-Shoulder surfing — someone viewing your screen while you are using your phone.
+Threat	Description
+👀 Shoulder Surfing	Someone visually observing your screen while you are using your device.
+📱 Unattended Device Snooping	Someone interacting with your device while you are away from it.
 
-Unattended-device snooping — someone interacting with your phone while you are away.
+SnoopGuard combines real-time visual threat detection, a decoy lockscreen, and a local forensic gallery into a single Android security experience.
 
-The application is organized around three core areas:
-
-Module
-
-Purpose
-
+Core Protection Modules
+Module	Purpose
+🛡️ Live Shield	Monitors the camera view for potential unauthorized observers.
+🎭 Decoy Trap	Provides a lockscreen-style protection mode for unattended devices.
+🧾 Forensic Gallery	Organizes locally stored security incidents and detection metadata.
+✨ Features
 🛡️ Live Shield
 
-Monitors the camera view for potential unauthorized observers
+Real-time protection designed to identify potential unauthorized observers using the device camera.
 
+Highlights
+Real-time threat status
+Owner biometric profile
+Facial landmark analysis
+Gaze-related analysis
+Configurable detection sensitivity
+Visual alerts
+Haptic feedback
+Optional audio alerts
+Local processing
+Built-in demonstration mode
 🎭 Decoy Trap
 
-Presents a convincing lockscreen-style interface and records intrusion events
+A lockscreen-style protection mode designed for situations where your device is left unattended.
 
+Highlights
+Dynamic time and date display
+Lock-style user interface
+Owner-only exit mechanism
+Intrusion-triggered camera capture
+Local incident storage
+Timestamped evidence
+Anti-tampering-oriented interaction flow
 🧾 Forensic Gallery
 
-Organizes captured incidents with timestamps and detection metadata
+A local incident history for reviewing previously detected events.
 
+Highlights
+Intruder snapshots
+Incident timestamps
+Detection confidence
+Incident classification
+Individual evidence deletion
+Complete evidence purge
+Optional evidence export workflow
 📸 Application Preview
 
-<p align="center">
-  <img src="docs/screenshots/home_shield.jpg" width="31%" alt="SnoopGuard Live Shield Dashboard">
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/decoy_trap.jpg" width="31%" alt="SnoopGuard Decoy Trap">
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/forensics_log.jpg" width="31%" alt="SnoopGuard Forensic Gallery">
-</p>
+<div align="center">
 
-<p align="center">
-  <sub>
-    <b>Live Shield</b> · <b>Decoy Trap</b> · <b>Forensic Gallery</b>
-  </sub>
-</p>
+<img src="docs/screenshots/home_shield.jpg" width="31%" alt="Live Shield Dashboard"> <img src="docs/screenshots/decoy_trap.jpg" width="31%" alt="Decoy Trap"> <img src="docs/screenshots/forensics_log.jpg" width="31%" alt="Forensic Gallery">
 
-🛡️ Core Features
+<br>
 
-Live Shield
+<sub> <b>Live Shield</b> &nbsp;•&nbsp; <b>Decoy Trap</b> &nbsp;•&nbsp; <b>Forensic Gallery</b> </sub>
 
-A real-time protection dashboard designed to help identify potential unauthorized observers.
-
-Highlights
-
-Real-time threat status
-
-Owner biometric profile
-
-Facial landmark and gaze analysis
-
-Configurable detection sensitivity
-
-Haptic, visual, and optional audio alerts
-
-Local processing architecture
-
-Built-in demonstration mode
-
-Decoy Trap
-
-A lockscreen-style protection mode intended for unattended-device scenarios.
-
-Highlights
-
-Lock interface with dynamically displayed time and date
-
-Owner-only exit mechanism
-
-Intrusion-triggered camera capture
-
-Local incident storage
-
-Timestamped evidence
-
-Anti-tampering-oriented interaction flow
-
-Forensic Gallery
-
-A local incident history for reviewing detected events.
-
-Highlights
-
-Intruder snapshots
-
-Incident timestamps
-
-Detection confidence information
-
-Incident classification
-
-Individual incident deletion
-
-Complete evidence purge
-
-Optional evidence export workflow
+</div>
 
 🔐 Privacy by Design
 
-Privacy is a core architectural principle of SnoopGuard.
+Privacy is not an optional feature of SnoopGuard.
 
-The project is designed around local-first processing so that sensitive biometric and incident information does not need to be uploaded to a remote service.
+The project is designed around a local-first architecture, minimizing the need to transfer security-sensitive information to remote services.
 
 Local Processing
 
-SnoopGuard is designed to keep security-related processing on the device, including:
+Security-related processing is designed to remain on the device, including:
 
 Facial analysis
-
 Gaze-related processing
-
 Threat assessment
-
 Image processing
-
 Incident storage
-
+Detection metadata
 No Cloud Dependency
 
-The intended architecture does not require a cloud backend for the core protection workflow.
+The core protection workflow is designed to operate without requiring a remote security backend.
 
-This means the application can be evaluated without relying on an external security server or analytics platform.
+This allows the application to be evaluated and used without depending on:
 
+Cloud security servers
+Remote biometric processing
+Third-party analytics platforms
+Mandatory account infrastructure
 User Control
 
-The application includes privacy-oriented controls for:
+SnoopGuard provides controls for:
 
-Camera permission management
-
+Camera permissions
 Biometric profile management
-
 Incident review
-
 Individual evidence deletion
-
 Complete local data deletion
+Demonstration mode
 
-Demonstration mode without camera access
+Important: Privacy and security claims should always be verified against the actual source code, Android permissions, dependencies, release configuration and device behavior.
 
-Important: Privacy and security claims should always be validated against the actual source code, Android permissions, dependencies, release configuration, and device behavior.
+🧠 How SnoopGuard Works
+┌──────────────────────────────────────────────────────────────┐
+│                         SNOOPGUARD                           │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│   🛡️ LIVE SHIELD     🎭 DECOY TRAP     🧾 FORENSICS         │
+│                                                              │
+├──────────────────────────────────────────────────────────────┤
+│                        PRESENTATION                          │
+│                  Jetpack Compose + M3                        │
+├──────────────────────────────────────────────────────────────┤
+│                         VIEW MODELS                          │
+│                     StateFlow / UI State                     │
+├──────────────────────────────────────────────────────────────┤
+│                       DOMAIN LAYER                           │
+│                 Detection & Security Logic                   │
+├──────────────────────────────────────────────────────────────┤
+│                         DATA LAYER                           │
+│                Room / Local Storage / Models                 │
+├──────────────────────────────────────────────────────────────┤
+│                     DEVICE SERVICES                          │
+│             CameraX · Android APIs · Local ML                │
+└──────────────────────────────────────────────────────────────┘
+Detection Flow
+Camera Input
+     │
+     ▼
+┌───────────────┐
+│ Local Vision  │
+│   Analysis    │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│ Threat        │
+│ Assessment    │
+└───────┬───────┘
+        │
+        ├──────────────► No Threat
+        │
+        ▼
+┌───────────────┐
+│ Protection    │
+│ Response      │
+└───────┬───────┘
+        │
+        ├──► Visual Alert
+        ├──► Haptic Feedback
+        ├──► Optional Audio
+        └──► Incident Logging
+                    │
+                    ▼
+            ┌────────────────┐
+            │ Local Forensic │
+            │    Gallery     │
+            └────────────────┘
+🔄 Protection Workflow
+01 — Owner Setup
 
-⚖️ Responsible Use
+The user establishes an owner profile during application setup.
 
-SnoopGuard is intended for personal device protection and privacy awareness.
+02 — Enable Protection
 
-Appropriate use includes:
+The user enables the desired protection mechanisms from the Shield interface.
 
-Protecting your own device from shoulder surfing
+03 — Local Analysis
 
-Detecting potential unauthorized interaction with your own device
+The camera view can be analyzed locally for potential observation events.
 
-Testing mobile privacy and security concepts
+04 — Threat Detection
 
-Learning about on-device computer vision
-
-Demonstrating privacy-preserving security architecture
-
-SnoopGuard should not be used for:
-
-Covert surveillance of other people
-
-Photographing people without appropriate consent where required by law
-
-Monitoring devices that you do not own or have permission to manage
-
-Circumventing legitimate security, parental-control, or enterprise-management systems
-
-Any activity that violates applicable privacy or surveillance laws
-
-Camera-based features should be used responsibly and in accordance with local law.
-
-🧠 How It Works
-
-1. Owner Setup
-
-The user can establish an owner profile during application setup.
-
-2. Active Protection
-
-When protection is enabled, the application can analyze the camera view using local processing to identify potential observation events.
-
-3. Threat Detection
-
-A suspected event can trigger configured feedback such as:
+When a suspected event is detected, configured responses may include:
 
 Visual notification
-
 Device vibration
-
 Optional audio alert
-
 Incident logging
+05 — Evidence Storage
 
-4. Incident Recording
+If an enabled protection mechanism records an incident, the relevant information is stored locally.
 
-When an enabled protection mechanism records an incident, the relevant information is stored locally for later review.
+06 — Forensic Review
 
-5. Forensic Review
-
-The Forensic Gallery provides a chronological view of recorded events and their available metadata.
+Recorded incidents can be reviewed chronologically through the Forensic Gallery.
 
 🏗️ Application Architecture
 
-SnoopGuard follows a modern Android architecture built around separation of concerns and reactive UI state.
+SnoopGuard follows a modern Android architecture focused on separation of concerns, reactive state management and local data handling.
 
-┌──────────────────────────────────────────────────────────┐
-│                       SNOOPGUARD                         │
-├──────────────────────────────────────────────────────────┤
-│                                                          │
-│  🛡️ LIVE SHIELD     🎭 DECOY TRAP     🧾 FORENSICS      │
-│                                                          │
-├──────────────────────────────────────────────────────────┤
-│                    PRESENTATION                          │
-│               Jetpack Compose + M3                       │
-├──────────────────────────────────────────────────────────┤
-│                     VIEW MODELS                          │
-│              StateFlow / UI State                         │
-├──────────────────────────────────────────────────────────┤
-│                    DOMAIN LAYER                          │
-│             Security & Detection Logic                    │
-├──────────────────────────────────────────────────────────┤
-│                      DATA LAYER                          │
-│             Room / Local Storage / Models                 │
-├──────────────────────────────────────────────────────────┤
-│                 DEVICE SERVICES                           │
-│        CameraX · Android APIs · Local ML                 │
-└──────────────────────────────────────────────────────────┘
-
+┌─────────────────────────────────────────────┐
+│                UI / PRESENTATION            │
+│          Jetpack Compose · Material 3       │
+├─────────────────────────────────────────────┤
+│                  VIEW MODELS                │
+│             StateFlow · UI State             │
+├─────────────────────────────────────────────┤
+│                  DOMAIN                     │
+│       Security · Detection · Use Cases      │
+├─────────────────────────────────────────────┤
+│                   DATA                      │
+│         Room · Repositories · Models        │
+├─────────────────────────────────────────────┤
+│             DEVICE / PLATFORM               │
+│       CameraX · Android APIs · Local ML     │
+└─────────────────────────────────────────────┘
 Main Application Areas
-
 Shield Dashboard
-
 Master protection toggle
-
 Threat status
-
 Owner profile status
-
 Detection controls
-
-Problem-solver / educational scenarios
-
+Educational scenarios
 Demonstration mode
-
 Protection statistics
-
 Decoy Trap
-
 Lock-style interface
-
 Intrusion trigger
-
 Camera capture workflow
-
 Local evidence handling
-
 Owner exit authentication
-
 Forensics
-
 Incident timeline
-
 Captured images
-
 Detection metadata
-
 Confidence information
-
-Deletion and purge controls
-
+Evidence deletion
+Complete purge
 Settings
-
-Sensitivity configuration
-
+Detection sensitivity
 Alert preferences
-
 Biometric profile management
-
 Camera permission controls
-
 Privacy controls
-
 Application reset
-
 ⚡ Technical Capabilities
-
-Capability
-
-Description
-
-Live Shield
-
-Real-time camera-based observation monitoring
-
-Gaze Analysis
-
-Facial landmark and gaze-related threat analysis
-
-Decoy Trap
-
-Lock-style interface for unattended-device protection
-
-Biometric Profile
-
-Local owner-profile calibration
-
-Forensic Gallery
-
-Timestamped incident history
-
-Sensitivity Control
-
-Adjustable protection sensitivity
-
-Demo Mode
-
-Hardware-free feature demonstration
-
-Local Storage
-
-Device-resident incident persistence
-
-Privacy Controls
-
-Profile, permission, and data management
-
+Capability	Description
+Live Shield	Real-time camera-based observation monitoring
+Gaze Analysis	Facial landmark and gaze-related threat analysis
+Decoy Trap	Lock-style interface for unattended-device protection
+Biometric Profile	Local owner-profile calibration
+Forensic Gallery	Timestamped local incident history
+Sensitivity Control	Adjustable protection sensitivity
+Demo Mode	Hardware-free feature demonstration
+Local Storage	Device-resident incident persistence
+Privacy Controls	Profile, permission and data management
 🧰 Technology Stack
-
-Technology
-
-Role
-
-Kotlin 2.0
-
-Primary development language
-
-Jetpack Compose
-
-Modern declarative UI
-
-Material 3
-
-UI design system
-
-MVVM
-
-Presentation architecture
-
-Clean Architecture
-
-Separation of application responsibilities
-
-StateFlow
-
-Reactive state management
-
-Kotlin Coroutines
-
-Asynchronous operations
-
-Room
-
-Local database abstraction
-
-KSP
-
-Compile-time code generation
-
-CameraX
-
-Camera lifecycle and hardware abstraction
-
-TensorFlow Lite
-
-On-device ML inference
-
-NNAPI
-
-Hardware-accelerated ML where supported
-
+Technology	Role
+Kotlin 2.0	Primary development language
+Jetpack Compose	Declarative Android UI
+Material 3	Modern Android design system
+MVVM	Presentation architecture
+Clean Architecture	Separation of application responsibilities
+StateFlow	Reactive state management
+Kotlin Coroutines	Asynchronous operations
+Room	Local database abstraction
+KSP	Compile-time code generation
+CameraX	Camera lifecycle and hardware abstraction
+TensorFlow Lite	On-device ML inference
+NNAPI	Hardware-accelerated ML where supported
 📱 Requirements
-
-Minimum
-
-Android: 8.0 / API 26+
-
-JDK: 17
-
-Gradle: 8.x+
-
-Compatible front-facing camera for camera-dependent features
-
+Minimum Requirements
+Requirement	Version
+Android	8.0 / API 26+
+JDK	17
+Gradle	8.x+
+Camera	Front-facing camera for camera-dependent features
 Recommended Development Environment
-
-Android Studio Iguana, Jellyfish, Ladybug, or newer
-
-Physical Android device for camera and hardware testing
-
+Android Studio Iguana, Jellyfish, Ladybug or newer
+Physical Android device for camera testing
 Android Emulator for UI and non-camera testing
 
-Some device-specific behavior may vary depending on Android version, camera hardware, manufacturer restrictions, and available hardware acceleration.
+Device behavior may vary depending on Android version, camera hardware, manufacturer restrictions and available hardware acceleration.
 
 📥 Download
 
-A pre-built APK is available from the project's GitHub release page.
+A pre-built APK is available through the GitHub release page.
 
-Current release referenced by this project: v.0.0.1
+Current Release
 
-👉 Download SnoopGuard APK
+v.0.0.1
 
-👉 View GitHub Release
+<div align="center">
+
+<a href="https://github.com/EthYusuf/secretOS/releases/tag/v.0.0.1"> <img src="https://img.shields.io/badge/Download%20SnoopGuard-APK-111111?style=for-the-badge&logo=android&logoColor=white"> </a>
+
+</div>
 
 Installation
-
 Download the APK from the release page.
-
 Transfer it to your Android device if necessary.
-
-Install the APK.
-
+Install the application.
 Review the requested permissions.
-
 Enable only the features you want to use.
+Use Demonstration Mode first if you want to explore the interface without camera access.
 
-Use Demonstration Mode first if you want to test the interface without camera access.
-
-Android may require you to allow installation from the relevant source before installing an APK obtained outside Google Play.
+Android may require permission to install applications obtained from sources outside Google Play.
 
 🔨 Build From Source
-
-1. Clone the repository
-
+1. Clone the Repository
 git clone https://github.com/EthYusuf/secretOS.git
 cd secretOS
-
-2. Clean the project
-
+2. Clean the Project
 ./gradlew clean
-
-3. Build a debug APK
-
+3. Build a Debug APK
 ./gradlew assembleDebug
-
-4. Run unit tests
-
+4. Run Unit Tests
 ./gradlew :app:testDebugUnitTest
-
-5. Run instrumented tests
-
+5. Run Instrumented Tests
 ./gradlew :app:connectedDebugAndroidTest
-
-6. Build a release APK
-
+6. Build a Release APK
 ./gradlew assembleRelease
 
-The release build requires a properly configured Android signing setup.
+A release build requires a properly configured Android signing setup.
 
-🧪 Testing Strategy
+🧪 Testing
 
-SnoopGuard can be tested at multiple levels:
+SnoopGuard can be evaluated at multiple levels.
 
 UI & Functional Testing
 
 Validate:
 
 Navigation
-
 Protection state changes
-
 Settings
-
 Permission flows
-
 Incident display
-
-Data deletion
-
+Evidence deletion
 Demonstration mode
-
 Unit Testing
-
 ./gradlew :app:testDebugUnitTest
-
 Instrumented Testing
-
 ./gradlew :app:connectedDebugAndroidTest
-
 Physical Device Testing
 
-Camera-dependent functionality should be tested on real Android hardware because camera APIs, performance, background restrictions, and manufacturer behavior can differ significantly between devices.
+Camera-dependent functionality should be tested on real Android hardware.
+
+Camera APIs, performance, background restrictions and manufacturer-specific behavior can vary significantly across devices.
 
 🔒 Security Considerations
 
 SnoopGuard handles potentially sensitive information. Security should therefore be treated as an ongoing engineering process.
 
-Areas that should be reviewed before production distribution include:
+Before production distribution, review:
 
 Android permission declarations
-
 Camera lifecycle behavior
-
 Local database encryption
-
 Android Keystore usage
-
 Backup configuration
-
 APK signing
-
 Dependency vulnerabilities
-
 Debug logging
-
-Export functionality
-
-Screenshot / screen-recording behavior
-
+Evidence export functionality
+Screenshot and screen-recording behavior
 Data deletion guarantees
-
 Security Disclosure
 
 If you discover a security vulnerability, please avoid publicly posting sensitive exploit details before the issue can be responsibly assessed.
@@ -560,99 +393,152 @@ For general bugs and feature requests, use GitHub Issues.
 
 🗺️ Roadmap
 
-Planned areas of development include:
+Development priorities may evolve as the project grows.
+
+Detection
+
+Improve observation detection
+
+Improve environmental adaptation
+
+Expand device compatibility
+
+Improve detection metadata
+
+Privacy & Security
 
 Multi-user trusted profiles
 
-Improved environmental adaptation
-
-More robust observation detection
-
-Accessibility improvements
-
-Expanded device compatibility
-
 Additional privacy controls
 
-Improved forensic metadata
-
-More comprehensive automated testing
+Optional encrypted backup
 
 Optional encrypted synchronization
 
-Optional encrypted backup workflows
+Engineering
 
-Roadmap items are subject to change as the project evolves.
+Expand automated test coverage
+
+Improve accessibility
+
+Improve hardware compatibility
+
+Expand documentation
+
+Roadmap items are subject to change.
 
 🤝 Contributing
 
-Contributions, ideas, bug reports, and security feedback are welcome.
+Contributions, ideas, bug reports and security feedback are welcome.
 
-Suggested workflow
-
-Fork the repository.
-
-Create a feature branch.
-
-Make your changes.
-
-Test the application.
-
-Commit your changes with a clear message.
-
-Open a pull request.
+Suggested Workflow
+Fork
+  │
+  ▼
+Create Feature Branch
+  │
+  ▼
+Implement Changes
+  │
+  ▼
+Run Tests
+  │
+  ▼
+Commit
+  │
+  ▼
+Open Pull Request
 
 Please keep security-sensitive changes documented and avoid introducing unnecessary data collection or network dependencies.
 
 🐛 Issues & Feedback
 
-For bugs, feature requests, and general project discussions:
-
-👉 Open a GitHub Issue
+For bugs, feature requests and general project discussions, please use GitHub Issues.
 
 When reporting a bug, include:
 
 Android version
-
 Device model
-
 SnoopGuard version
-
 Steps to reproduce
-
 Expected behavior
-
 Actual behavior
-
 Relevant logs or screenshots, if safe to share
+Please do not include
+Private photographs
+Biometric information
+Passwords
+Authentication tokens
+Personal credentials
+Other sensitive information
 
-Do not include private photographs, biometric information, passwords, tokens, or other sensitive data in public issues.
+in public issues.
+
+⚖️ Responsible Use
+
+SnoopGuard is intended for personal device protection, privacy awareness and security research/education.
+
+Appropriate Uses
+Protecting your own device from shoulder surfing
+Detecting potential unauthorized interaction with your own device
+Testing mobile privacy concepts
+Learning about on-device computer vision
+Demonstrating privacy-preserving security architecture
+Do Not Use SnoopGuard For
+Covert surveillance of other people
+Recording people without appropriate consent where required by law
+Monitoring devices you do not own or have permission to manage
+Circumventing legitimate security or management systems
+Activities that violate applicable privacy or surveillance laws
+
+Camera-based functionality should always be used responsibly and in accordance with applicable law.
 
 📄 License
 
 SnoopGuard is distributed under the MIT License.
 
-See the LICENSE file for the complete license text.
+See LICENSE for the complete license text.
 
 ⚠️ Disclaimer
 
 SnoopGuard is a security and privacy project intended for educational and personal protection purposes.
 
-The application should be treated as an additional privacy layer, not as a replacement for Android's native security mechanisms, strong device authentication, encryption, or other established security controls.
+It should be treated as an additional privacy layer, not a replacement for:
 
-Detection accuracy can vary based on lighting, camera quality, device hardware, viewing angle, environmental conditions, and software configuration.
+Android's native security mechanisms
+Strong device authentication
+Encryption
+Secure application practices
+Established endpoint security controls
 
-Privacy, recording, biometric-data, and surveillance laws vary by jurisdiction. Users are responsible for using the application lawfully and obtaining any consent required by applicable law.
+Detection accuracy can vary depending on:
 
-<p align="center">
-  <strong>SnoopGuard</strong><br>
-  <em>Your screen is for your eyes only.</em>
-</p>
+Lighting conditions
+Camera quality
+Device hardware
+Viewing angle
+Environmental conditions
+Software configuration
 
-<p align="center">
-  Privacy Protection · On-Device Processing · Responsible Security
-</p>
+Privacy, recording, biometric-data and surveillance laws vary by jurisdiction. Users are responsible for using the application lawfully and obtaining any consent required by applicable law.
 
-<p align="center">
-  Built with ❤️ for privacy-conscious users.
-</p>
+<div align="center">
+
+🛡️ SnoopGuard
+Your screen is for your eyes only.
+
+<br>
+
+Privacy Protection
+On-Device Processing
+Responsible Security
+
+<br>
+
+Built with ❤️ for privacy-conscious users.
+
+<br>
+
+<a href="https://github.com/EthYusuf/secretOS"> <img src="https://img.shields.io/badge/GitHub-EthYusuf-111111?style=for-the-badge&logo=github&logoColor=white"> </a>
+
+</div>
